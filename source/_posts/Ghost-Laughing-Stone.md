@@ -8,12 +8,7 @@ abbrlink: c18c59ba
 date: 2024-01-22 17:59:48
 ---
 # 画廊 Gallery
-{% gallery %}
-![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-1.png)
-![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-2.png)
-![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-3.png)
-![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-4.png)
-{% endgallery %}
+
 
 
 ## 记录 Record

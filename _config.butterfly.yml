@@ -110,6 +110,24 @@ tag_img:
 #  - tag name: xxxxx
 tag_per_img:
 
+tag_plugins:
+  enable: true
+  priority: 5
+  CDN:
+    # hexo-butterfly-tag-plugins-plus
+    butterfly_tag_plugins_plus: https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus/lib/assets/font-awesome-animation.min.css
+  # 标签外挂样式
+  tags:
+    # gallery 相册
+    gallery:
+      enable: true
+    # note 便签
+    note:
+      enable: true
+    # tabs 分栏
+    tabs:
+      enable: true
+
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
 category_img:

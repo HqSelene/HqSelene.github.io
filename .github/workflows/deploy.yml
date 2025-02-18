@@ -49,8 +49,9 @@ jobs:
           hexo generate
           cd ./public
           git init
+          git checkout -b main
           git add .
           git config --global user.name "$GIT_USER"
           git config --global user.email "$GIT_EMAIL"
           git commit -m "Site updated: $(date -u)"
-          git push --force "https://$GIT_USER:${{ secrets.GITHUB_TOKEN }}@github.com/HqSelene/HqSelene.github.io.git" main
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/HqSelene/HqSelene.github.io.git" main

@@ -12,9 +12,11 @@
     "version": "7.3.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "bootstrap": "^5.3.3",
     "chokidar": "^3.6.0",
     "core-js": "^3.40.0",
+    "fontawesome-free": "^1.0.4",
     "hexo": "^7.3.0",
     "hexo-abbrlink": "^2.2.1",
     "hexo-bunyan": "^2.0.0",

@@ -56,3 +56,4 @@ jobs:
           user_email: hqselene@163.com
           publish_dir: ./public
           publish_branch: main
+          force_orphan: true

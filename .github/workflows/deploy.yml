@@ -49,9 +49,12 @@ jobs:
           hexo generate
 
       - name: Publish
-        uses: peaceiris/actions-gh-pages@v3 # easingthemes/ssh-deploy@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          user_name: HqSelene
-          user_email: hqselene@163.com
-          publish_dir: ./public
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_ACCESS_TOKEN }}
+          #github_token: ${{ secrets.GITHUB_TOKEN }}
+          #user_name: HqSelene
+          #user_email: hqselene@163.com
+          ARGS: "-rltgoDzvO -i"
+          SOURCE: "public/"
+          EXCLUDE: ".git/"

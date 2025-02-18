@@ -120,6 +120,7 @@ deploy:
   repository: https://github.com/HqSelene/HqSelene.github.io.git
   branch: main
   ignore_hidden: false
+  token: ${{ secrets.GITHUB_TOKEN }} 
 
 aplayer:
   meting: true

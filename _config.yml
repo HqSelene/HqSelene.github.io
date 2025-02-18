@@ -117,7 +117,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/HqSelene/HqSelene.github.io.git
+  repository: git@github.com:HqSelene/HqSelene.github.io.git
   branch: main
   ignore_hidden: false
   token: ${{ secrets.GITHUB_TOKEN }} 

@@ -30,16 +30,20 @@ jobs:
         run: |
           npm install
           npm install hexo-cli -g
+          npm install
           npm install hexo-deployer-git --save
 
       - name: Configure Git
         run: |
-          git config --global user.name "HqSelene"
-          git config --global user.email "hqselene@163.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory /github/workspace
 
       - name: Generate and Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER: HqSelene
+          GIT_EMAIL: hqselene@163.com
         run: |
           hexo clean
           hexo generate

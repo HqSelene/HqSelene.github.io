@@ -9,51 +9,44 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          submodules: false
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          submodules: recursive
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: npm
-
-      # 移除克隆主题的步骤，因为我们要使用仓库中的自定义主题
-
-      - name: Install dependencies
-        run: |
-          npm install
-          npm install hexo-cli -g
-          npm install
-          npm install hexo-deployer-git --save
-
-      - name: Configure Git
-        run: |
-          git config --global user.name HqSelene
-          git config --global user.email hqselene@163.com
-          git config --global --add safe.directory /github/workspace
-
-      - name: Generate and Deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_USER: HqSelene
-          GIT_EMAIL: hqselene@163.com
-        run: |
-          hexo clean
-          hexo generate
-
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v4 # easingthemes/ssh-deploy@main
+          # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
+          # Ref: https://github.com/actions/setup-node#supported-version-syntax
+          node-version: "16"
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          user_name: HqSelene
-          user_email: hqselene@163.com
-          publish_dir: ./public
-          publish_branch: main
-          force_orphan: true
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

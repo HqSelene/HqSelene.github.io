@@ -9,6 +9,11 @@ date: 2024-01-22 17:59:48
 ---
 # 画廊 Gallery
 
+![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-1.png)
+![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-2.png)
+![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-3.png)
+![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-4.png)
+
 
 
 ## 记录 Record

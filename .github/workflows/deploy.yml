@@ -1,50 +1,57 @@
-name: Deploy
+name: Deploy Hexo to GitHub Pages
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: A job to deploy blog.
+    permissions:
+      contents: write
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-      with:
-        submodules: true # Checkout private submodules(themes or something else).
-    
-    # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: false
 
-    - name: Cache node modules
-      uses: actions/cache@v1
-      id: cache
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        npm install
-        hexo-cli -g
-        npm-install
-        hexo-deployer-git --save
-    
-    # Deploy hexo blog website.
-    - name: Deploy
-      id: deploy
-      uses: sma11black/hexo-action@v1.0.3
-      with:
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
-        user_name: HqSelene  # (or delete this input setting to use bot account)
-        user_email: hqselene@163.com  # (or delete this input setting to use bot account)
-        commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
-    # Use the output from the `deploy` step(use for test action)
-    - name: Get the output
-      run: |
-        echo "${{ steps.deploy.outputs.notify }}"
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+
+      # 移除克隆主题的步骤，因为我们要使用仓库中的自定义主题
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install hexo-cli -g
+          npm install
+          npm install hexo-deployer-git --save
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory /github/workspace
+
+      - name: Generate and Deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER: HqSelene
+          GIT_EMAIL: hqselene@163.com
+        run: |
+          hexo clean
+          hexo generate
+
+      - name: Publish
+        uses: peaceiris/actions-gh-pages@v3 # easingthemes/ssh-deploy@main
+        wu\ith:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: HqSelene
+          user_email: hqselene@163.com
+          publish_dir: ./public

@@ -88,3 +88,11 @@ url('/fonts/iconfont.svg#iconfont') format('svg');
 .post[data-slug="Emotion-Space-Self-Construction"] {
   background-color: #f0f0f0; /* 你想要的背景颜色 */
 }
+
+.post-content {
+  color: #ffffff;  /* 修改文章内容颜色 */
+}
+
+#article-container {
+  color: #ffffff;  /* 修改文章容器内文字颜色 */
+}

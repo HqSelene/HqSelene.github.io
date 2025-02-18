@@ -1,0 +1,3 @@
+[submodule "themes/butterly"]
+	path = themes/butterly
+	url = git@github.com:HqSelene/hexo-theme-butterfly-modified.git

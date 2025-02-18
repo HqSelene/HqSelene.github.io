@@ -14,10 +14,10 @@ jobs:
     
     # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
     - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'npm'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
 
     - name: Cache node modules
       uses: actions/cache@v1

@@ -35,8 +35,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name HqSelene
+          git config --global user.email hqselene@163.com
           git config --global --add safe.directory /github/workspace
 
       - name: Generate and Deploy
@@ -49,12 +49,9 @@ jobs:
           hexo generate
 
       - name: Publish
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_ACCESS_TOKEN }}
-          #github_token: ${{ secrets.GITHUB_TOKEN }}
-          #user_name: HqSelene
-          #user_email: hqselene@163.com
-          ARGS: "-rltgoDzvO -i"
-          SOURCE: "public/"
-          EXCLUDE: ".git/"
+        uses: peaceiris/actions-gh-pages@v4 # easingthemes/ssh-deploy@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: HqSelene
+          user_email: hqselene@163.com
+          publish_dir: ./public

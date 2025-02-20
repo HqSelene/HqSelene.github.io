@@ -85,6 +85,18 @@ url('/fonts/iconfont.svg#iconfont') format('svg');
   content: "\e600";
 }
 
-.post[data-slug="Emotion-Space-Self-Construction"] {
-  background-color: #f0f0f0; /* 你想要的背景颜色 */
+body {
+  color: #FFFFFF !important;
+}
+
+.article-container {
+  color: #FFFFFF !important;
+}
+
+.article-meta__info {
+  color: #FFFFFF !important;
+}
+
+.article-sort-title {
+  color: #FFFFFF !important;
 }

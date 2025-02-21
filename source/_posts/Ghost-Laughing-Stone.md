@@ -7,7 +7,7 @@ cover: /images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-1.png
 abbrlink: c18c59ba
 date: 2024-01-22 17:59:48
 ---
-# 画廊 Gallery
+## 画廊 Gallery
 
 ![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-1.png)
 ![](/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-2.png)

@@ -3,7 +3,6 @@ title: Emotion Space Self-Construction
 abbrlink: ace1c5d2
 date: 2023-12-25 11:05:59
 tags: 
-- project
 - design
 categories: 
 - project

@@ -12,9 +12,18 @@ mylabels:
 - name: "Performance Art"
 - name: "Installation"
 cover: /images/banner/emotion.png
+layout: proj
 ---
+<style>
+.project-title{
+  color: #FFFFFF !important;
+}
+</style>
 
+
+<div class="overview-quote">
 "My university is similar to other Chinese colleges, which lack enough facilities to provide private spaces for their students. When you feel depressed, sad, or breakdown, there is no separate room for you to deal with your negative emotions. You can hear others crying and shouting from the corridors, which makes everyone feel embarrassed. This situation can also happen to people living in large cities today. Life is fast-paced, and pressure exists everywhere. However, these people don't have time or space to mitigate, and the negative emotions constantly aggregate."
+</div>
 
 ## Emotion Space Self-Construction
 This is a freelance activity. This project is about emotion and based on my observation towards things happened around me as well as my own experiences. This project includes two types of presentation, one is a unity game called [Contend For Room](https://hqselene.github.io/EmotionSpaceCreation/), another is a performance [Emotional "Monster"](https://www.youtube.com/watch?v=fM26rF-7J4s).
@@ -43,8 +52,8 @@ At normal state, our internal body can exchange emotion with public space, which
 ### Game Design
 The game is developed on Unity and illustrates a scene to show when people need and how to create an emotion space.
 
-The more information about this project can be found on [github](https://github.com/HqSelene/EmotionSpaceCreation.git).
-The game can be played on [website](https://hqselene.github.io/EmotionSpaceCreation/).
+*The more information about this project can be found on [github](https://github.com/HqSelene/EmotionSpaceCreation.git).*
+*The game can be played on [website](https://hqselene.github.io/EmotionSpaceCreation/).*
 
 ![](game.png)
 ![](game-2.png)
@@ -52,8 +61,15 @@ The game can be played on [website](https://hqselene.github.io/EmotionSpaceCreat
 ### Performance
 This section shows the theory in depth through a wearable installation and performances, using our bodies to connect our emotional spaces physically. Hence, this part develops my affordances to identify other emotional assemblages and the process has been documented through a [film](https://www.youtube.com/watch?v=fM26rF-7J4s).
 
-{% image start.png, width=10px, alt=wearable installation %}
+#### Materials and Design Process
+![](material.png)
+![](design_process.png)
 
-![wearable installation](start.png)
+#### Design Status
+Negative and positive states are indicated by the color of the tube material wrapped around the clothing.
+
+![](status.png)
+
+#### Wearable Installation Photos
 ![](film-1.png)
 ![](film-2.png)

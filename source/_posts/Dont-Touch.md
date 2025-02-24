@@ -12,6 +12,7 @@ mylabels:
   - name: Transparency
 cover: /images/501/elevation.png
 abbrlink: a436b1e0
+layout: proj
 date: 2025-02-19 23:11:37
 ---
 
@@ -23,5 +24,19 @@ As an open, free art space, the ICA presents possibilities of domestic, open art
 
 ## Line Drawings
 
+**Floor Plan**
+![](/images/501/floor-plan.png)
 
+**Section**
+![](/images/501/section.png)
+
+## Rendering Pictures
+![](/images/501/New_exterior.png)
+![](/images/501/New_interior.png)
+
+## Model Pictures
+![](/images/501/model.png)
+![](/images/501/model01.png)
+![](/images/501/model03.JPG)
+![](/images/501/model04.JPG)
 

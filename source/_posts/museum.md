@@ -24,6 +24,7 @@ cover: /images/museum/history.jpg
 }   
 </style>
 
+## Overview
 Humans created time and reached a consensus on this concept, which is reflected through the clock. Likewise, I build a consensus of visitors knowledge toward exhibits and the panel is the clock in this reflection process. 
 
 Visitors can see the overall attitude of previous visitors conveyed by the panel from a distance. The panel will leave a profound impression in their minds, even evoking some feelings of horror and fear, as it reveals something present in everyone but previously left unnamed, much like time.

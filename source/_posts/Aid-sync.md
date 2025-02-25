@@ -16,7 +16,7 @@ abbrlink: 9952378d
 date: 2025-02-23 08:10:27
 ---
 
-
+## Overview
 The Wuhan lockdown and the Henan floods were significant public crises that caused severe damage in recent years. These events highlighted the potential of pan-media as an innovative response mechanism for emergencies, integrating ordinary citizens into the traditionally government-led rescue system. By forming a "mutual aid ecosystem", pan-media facilitates real-time feedback on rescue information and online rescue efforts alongside official on-site operations.
 
 However, the spontaneous "mutual aid ecosystem" formed through social media has limitations, such as redundant data and difficulties in extracting valuable information. 

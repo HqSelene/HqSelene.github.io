@@ -1,0 +1,136 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 622px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 529px;
+  height: 529px;
+  margin: 31px auto 0 127px;
+}
+
+.u-section-1 .u-text-1 {
+  font-family: Aclonica;
+  font-size: 8rem;
+  margin: -350px 83px 0 673px;
+}
+
+.u-section-1 .u-text-2 {
+  font-family: Aclonica;
+  margin: -5px 83px 0 673px;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: solid;
+  margin: 39px 295px 0 auto;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-2 {
+  border-style: solid;
+  margin: 14px 322px 60px auto;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 790px;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-left: 15px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 4.5rem;
+    width: auto;
+    margin-right: 168px;
+    margin-left: 556px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: auto;
+    margin-right: 0;
+    margin-left: 556px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-right: 95px;
+  }
+
+  .u-section-1 .u-btn-2 {
+    margin-right: 122px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 691px;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-left: 47px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 8rem;
+    margin-right: 150px;
+    margin-left: 215px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 144px;
+    margin-left: 192px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-btn-2 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 700px;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-left: auto;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 5.875rem;
+    margin-right: 270px;
+    margin-left: 42px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: -102px;
+    margin-left: 258px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 619px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 340px;
+    height: 340px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 3rem;
+    margin-top: -161px;
+    margin-right: 0;
+    margin-left: 98px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: -16px;
+    margin-left: 16px;
+  }
+}

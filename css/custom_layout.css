@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+@import url('URL_ADDRESS.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  background-color: #E2E1E7;
+}
+
+.float-left {
+  flex: 0 0 calc(50% - 1rem);
+  margin-right: auto;
+}
+
+
+.float-right {
+  flex: 0 0 calc(50% - 1rem);
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .float-left, .float-right {
+    flex: 0 0 100%;
+  }
+}
+
+.float-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2em 0;
+}
+
+.nav-bar {
+  background-color: #E2E1E7; /*FDF3CF*/
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.overview-quote {
+  background-color: #1a45c8;
+  
+  padding: 1em 1.5em;
+  margin: 2em 0;
+  color: #f787ce;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+.nav-container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.nav-list li a {
+  color: #1a45c8;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  min-width: 400px;
+  text-align: center;
+  display: block;  
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  font-family: 'Cormorant Garamond', serif;
+  color: #f787ce;
+  transform: scale(1.05);
+}
+
+.navbar-toggler {
+  border-color: #1a45c8;
+  margin-left: auto;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(20, 125, 66, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991px) {
+  .nav-list {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .nav-list li a {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+::selection {
+  background: #f787ce;
+  color: #FFFFFF; 
+}
+
+.project-content ::-moz-selection {
+  background: #f787ce;
+  color: #FFFFFF; 
+}
+
+.project-content a {
+  color: #f787ce;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.project-content a:hover {
+  color: #1a45c8;
+  text-decoration: underline;
+}

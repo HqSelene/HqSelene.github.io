@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | QING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary-blue: #1a45c8;
+            --primary-pink: #f787ce;
+            --bg-light: #e2e1e7;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar - 与项目页面一致 */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(226, 225, 231, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(26, 69, 200, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-pink);
+            transition: width 0.3s ease;
+        }
+
+        .nav-list li a:hover {
+            color: var(--primary-pink);
+        }
+
+        .nav-list li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--primary-pink);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--primary-pink);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 100px;
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .intro-name {
+            font-weight: 500;
+            font-size: 6em;
+            font-style: italic;
+            font-family: 'Old Standard TT', serif;
+            color: var(--primary-pink);
+            letter-spacing: 0.02em;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            font-weight: 400;
+            font-size: 3em;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            letter-spacing: 0.02em;
+            display: block;
+        }
+
+        .page-underline {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-blue) 100%);
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin: 4rem 0 3rem;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.5em;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        .section-line {
+            height: 1px;
+            background: var(--primary-blue);
+            flex-grow: 1;
+            max-width: 300px;
+        }
+
+        /* Publications */
+        .publications {
+            padding: 2rem 0 4rem;
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .pub-item {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .pub-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            border-radius: 1rem 0 0 1rem;
+            background: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-blue) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pub-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(26, 69, 200, 0.15);
+        }
+
+        .pub-item:hover::before {
+            opacity: 1;
+        }
+
+        .pub-item.featured {
+            background: linear-gradient(135deg, #fff5fb 0%, #f5f7ff 100%);
+            border-color: var(--primary-pink);
+        }
+
+        .pub-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--primary-blue) 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .author-highlight {
+            color: var(--primary-pink);
+            font-weight: 600;
+        }
+
+        .pub-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .pub-venue {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .pub-status {
+            display: inline-block;
+            background: #e7f5e9;
+            color: #2d7a3e;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pub-status.under-review {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 0.6rem;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .pub-link:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Background decoration */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+                position: fixed;
+                left: 20px;
+                top: 20px;
+                z-index: 1001;
+            }
+
+            .nav-list {
+                display: block;
+                flex-direction: column;
+                width: 200px;
+                position: fixed;
+                top: 0;
+                left: -200px;
+                height: 100vh;
+                background: rgba(226, 225, 231, 0.98);
+                padding: 80px 0;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-list.active {
+                left: 0;
+                backdrop-filter: blur(8px);
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-list li {
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: all 0.3s ease;
+                padding: 1rem 2rem;
+            }
+
+            .nav-list.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .nav-list li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-list li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-list li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-list li:nth-child(4) { transition-delay: 0.4s; }
+
+            .intro-name {
+                font-size: 4em;
+            }
+
+            .intro-text {
+                font-size: 2em;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .pub-item {
+                padding: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-name {
+                font-size: 3em;
+            }
+
+            .intro-text {
+                font-size: 1.5em;
+            }
+
+            .section-header h2 {
+                font-size: 1.5em;
+            }
+
+            .pub-title {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/project">Home</a></li>
+                <li><a href="/about">About Me</a></li>
+                <li><a href="/pdf/Qing_He_Selected_Works.pdf" target="_blank">Working Sample</a></li>
+                <li><a href="/pdf/Qing_He_CV" target="_blank">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Background Decoration -->
+    <div class="background-container">
+        <img class="background-image" src="/img/item5.png" alt="">
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <span class="intro-name">Publications</span>
+                <span class="intro-text">Research in HCI, AI, ML</span>
+                <div class="page-underline"></div>
+            </div>
+        </section>
+
+        <section class="publications">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2>Selected Publications</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="pub-list">
+                    <article class="pub-item featured">
+                        <div class="pub-badge">CHI 2026</div>
+                        <div class="pub-authors">
+                            <span class="author-highlight">Qing He</span>, Zeyu Wang, Yuzhou Du, Yuanchun Shi*, Yuntao Wang*
+                        </div>
+                        <h3 class="pub-title">Does Personalized Nudging Wear Off? A Longitudinal Study of AI Self-Modeling for Behavioral Engagement</h3>
+                        <div class="pub-venue">ACM SIGCHI Conference on Human Factors in Computing Systems (CHI), 2026</div>
+                        <div class="pub-status">Conditionally Accepted</div>
+                        <a href="/pdf/Longitudinal_Study_of_AI_Self_Modeling.pdf" target="_blank" class="pub-link">
+                            📄 View PDF
+                        </a>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-badge">DMS 2026</div>
+                        <div class="pub-authors">
+                            <span class="author-highlight">Qing He</span>, Ruowei Gong, Yixuan Gu, Zherui Wang*
+                        </div>
+                        <h3 class="pub-title">Fieldnotes: Design AI Adoption for Facade Monitoring</h3>
+                        <div class="pub-venue">Design Modelling Symposium, 2026</div>
+                        <div class="pub-status under-review">Under Review</div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-badge">TKDE 2023</div>
+                        <div class="pub-authors">
+                            Qiannan Zhu, Haobo Zhang, <span class="author-highlight">Qing He</span>, Zhicheng Dou*
+                        </div>
+                        <h3 class="pub-title">Query-aware Explainable Product Search with Reinforcement Knowledge Graph Reasoning</h3>
+                        <div class="pub-venue">IEEE Transactions on Knowledge and Data Engineering (TKDE), 2023</div>
+                        <a href="https://doi.org/10.1109/TKDE.2023.3297331" target="_blank" class="pub-link">
+                            🔗 View DOI
+                        </a>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-badge">WWW 2022</div>
+                        <div class="pub-authors">
+                            Qiannan Zhu, Haobo Zhang, <span class="author-highlight">Qing He</span>, Zhicheng Dou*
+                        </div>
+                        <h3 class="pub-title">A Gain-Tuning Dynamic Negative Sampler for Recommendation</h3>
+                        <div class="pub-venue">The Web Conference (WWW), 2022</div>
+                        <a href="https://doi.org/10.1145/3485447.3511956" target="_blank" class="pub-link">
+                            🔗 View DOI
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

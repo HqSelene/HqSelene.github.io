@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Emotion &quot;Clock&quot; | QING</title><meta name="keywords" content="design"/><meta name="author" content="Qing H"/><meta name="copyright" content="Qing H"/><meta name="format-detection" content="telephone=no"/><meta name="theme-color" content="#0d0d0d"/><meta name="description" content=".project-title, .project-subtitle{   color: #FFFFFF!important; }      OverviewHumans created time and reached a consensus on this concept, which is reflected through the clock. Likewise, I build a co">
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Emotion &quot;Clock&quot; | QING</title><meta name="keywords" content="design"/><meta name="author" content="Qing H"/><meta name="copyright" content="Qing H"/><meta name="format-detection" content="telephone=no"/><meta name="theme-color" content="#0d0d0d"/><meta name="description" content=".project-title, .project-subtitle{   color: #FFFFFF!important; }      OverviewHumans created time as a shared abstraction, a collective agreement that allows society to function. The clock materializ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Emotion &quot;Clock&quot;">
 <meta property="og:url" content="https://hqselene.github.io/post/62474477/index.html">
 <meta property="og:site_name" content="QING">
-<meta property="og:description" content=".project-title, .project-subtitle{   color: #FFFFFF!important; }      OverviewHumans created time and reached a consensus on this concept, which is reflected through the clock. Likewise, I build a co">
+<meta property="og:description" content=".project-title, .project-subtitle{   color: #FFFFFF!important; }      OverviewHumans created time as a shared abstraction, a collective agreement that allows society to function. The clock materializ">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://hqselene.github.io/images/museum/history.jpg">
 <meta property="article:published_time" content="2025-02-22T16:51:18.000Z">
-<meta property="article:modified_time" content="2026-02-13T03:40:53.097Z">
+<meta property="article:modified_time" content="2026-03-01T04:37:22.410Z">
 <meta property="article:author" content="Qing H">
 <meta property="article:tag" content="design">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2026-02-13 11:40:53'
+  postUpdate: '2026-03-01 12:37:22'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -266,16 +266,40 @@
     <div class="project-banner" style="background-image: url('/images/museum/history.jpg')">
       
         <div class="title-overlay">
-          <h1 class="project-title">Emotion &#34;Clock&#34;</h1>
-          
-            <h2 class="project-subtitle">New Adaption in Contemporary Museum</h2>
-          
+          <div class="title-overlay-inner">
+            <div class="title-meta-top">Working Sample</div>
+            <h1 class="project-title">Emotion &#34;Clock&#34;</h1>
+            
+              <h2 class="project-subtitle">New Adaption in Contemporary Museum</h2>
+            
+            
+              <div class="banner-tags">
+                
+                  <span class="banner-tag">design</span>
+                
+              </div>
+            
+          </div>
         </div>
       
+      <div class="banner-scroll-hint">scroll ↓</div>
     </div>
   
-  
+
   <div class="project-container">
+
+    <!-- TOC sidebar -->
+    
+    
+      <aside class="toc-container">
+        <div class="toc-wrapper">
+          <div class="toc-title">Outline</div>
+          <div class="toc-content"></div>
+        </div>
+      </aside>
+    
+
+    <!-- Main content -->
     <article class="project-content">
       <style>
 .project-title, .project-subtitle{
@@ -283,8 +307,17 @@
 }   
 </style>
 
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Humans created time and reached a consensus on this concept, which is reflected through the clock. Likewise, I build a consensus of visitors knowledge toward exhibits and the panel is the clock in this reflection process. </p>
-<p>Visitors can see the overall attitude of previous visitors conveyed by the panel from a distance. The panel will leave a profound impression in their minds, even evoking some feelings of horror and fear, as it reveals something present in everyone but previously left unnamed, much like time.</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Humans created time as a shared abstraction, a collective agreement that allows society to function. The clock materializes this invisible consensus, making an intangible concept measurable and visible.</p>
+<p>In this project, I explore a similar idea: <em>What if knowledge and interpretation within an exhibition space could also become visible through consensus?</em></p>
+<p>I designed an interactive system where visitors collectively construct a shared understanding of exhibits. The panel functions as a “clock”, not for time, but for accumulated perception.</p>
+<h3 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h3><p>The project consists of:</p>
+<ol>
+<li>A mobile application interface for visitor input</li>
+<li>A physical interactive panel (custom hardware) installed in the exhibition space</li>
+<li>A real-time aggregation system that translates individual responses into collective visualization</li>
+</ol>
+<p>Visitors interact with the exhibit through the app, submitting interpretations, emotional reactions, or evaluations. These inputs are processed and dynamically reflected on the physical panel.</p>
+<p>Over time, the panel becomes a living visualization of consensus showing an evolving index of collective perception.</p>
 <h3 id="“Clock”-System-Design"><a href="#“Clock”-System-Design" class="headerlink" title="“Clock” System Design"></a>“Clock” System Design</h3><h4 id="Emotion-Clock"><a href="#Emotion-Clock" class="headerlink" title="Emotion Clock"></a>Emotion Clock</h4><p><img src="/images/museum/clock.png"><br>This is the visualization of a similarity matrix, which functioned as a clock to show visitors’ attitudes toward other exhibits. It involves the mutual similarity of $x$ interactive visitors. The latest interactive visitors are set to default and displayed to the visitor. Since the current interactive visitor is the latest visitor to interact with the panel, column $n$ and row $n$ show similarities between this visitor and former $x$ visitors.</p>
 <h4 id="Clock-Installation"><a href="#Clock-Installation" class="headerlink" title="Clock Installation"></a>Clock Installation</h4><p><img src="/images/museum/device-3.png"><br>This panel installation is used to show the similarity matrix.</p>
 <h4 id="Data-Workflow"><a href="#Data-Workflow" class="headerlink" title="Data Workflow"></a>Data Workflow</h4><p>This process depicts a detailed process related to data, from data collection to data computation. Expressly, the data storage and computation environment is set on the cloud. The data computation is based on Python, with different libraries in different tasks.<br><img src="/images/museum/data_workflow.png"></p>
@@ -300,16 +333,9 @@ The emotion analysis is based on the color wheel theory. Robert Plutchik, a psyc
 
     </article>
 
-    
-    
-      <aside class="toc-container">
-        <div class="toc-wrapper">
-          <div class="toc-title">Outline</div>
-          <div class="toc-content"></div>
-        </div>
-      </aside>
-    
   </div>
+
+  <!-- Image lightbox -->
   <div class="image-viewer">
     <div class="image-viewer-container">
       <img src="" alt="">
@@ -317,96 +343,411 @@ The emotion analysis is based on the color wheel theory. Robert Plutchik, a psyc
     </div>
   </div>
 </div>
-<style>
 
+<!-- ─────────────────────────────────────────
+     STYLES
+───────────────────────────────────────── -->
+<style>
+/* ── Variables ── */
+:root {
+  --blue:       #1a45c8;
+  --blue-mid:   #2d57e0;
+  --blue-light: #4a70f0;
+  --blue-pale:  rgba(26, 69, 200, 0.07);
+  --pink:       #f787ce;
+  --pink-mid:   #e060b0;
+  --pink-pale:  rgba(247, 135, 206, 0.12);
+  --purple:     #8b6fe8;
+  --bg:         #e8e8ee;
+  --surface:    rgba(255,255,255,0.85);
+  --text:       #1a1a2e;
+  --muted:      #5a5a7a;
+  --border:     rgba(26, 69, 200, 0.12);
+  --radius:     14px;
+  --shadow-sm:  0 2px 12px rgba(26,69,200,0.07);
+  --shadow-md:  0 6px 28px rgba(26,69,200,0.11);
+}
+
+/* ── Banner ── */
 .project-banner {
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 .project-banner::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(232,232,238,0) 30%,
+    rgba(232,232,238,0.55) 70%,
+    rgba(232,232,238,0.92) 100%
+  );
+}
+
+.title-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 72px 8%;
+}
+
+.title-overlay-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+
+.title-meta-top {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pink-mid);
+  margin-bottom: 14px;
 }
 
 .project-title {
-  color: #1a45c8;
-  font-size: 6em;
-  position: relative;
-  z-index: 1;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.05;
+  color: var(--blue);
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
 }
 
 .project-subtitle {
-  color: #1a45c8;
-  font-size: 2em;
-  position: relative;
-  z-index: 1;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 500;
-}
-
-.project-content {
-  color: #1a45c8;
-  width:1000px;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  line-height: 1.8;
-  flex: none;
-  justify-content: center;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--muted);
+  margin: 0 0 24px;
+  line-height: 1.5;
 }
 
+.banner-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.banner-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: var(--pink-pale);
+  color: var(--pink-mid);
+  border: 1px solid rgba(247,135,206,0.3);
+  backdrop-filter: blur(6px);
+}
+
+.banner-scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  right: 48px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  opacity: 0.5;
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+/* ── No-cover header ── */
+.project-header-simple {
+  background: var(--bg);
+  padding: 80px 8% 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-simple-inner { max-width: 760px; }
+
+.project-title-inline {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: var(--blue);
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.project-subtitle-inline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Layout ── */
 .project-container {
   display: flex;
-  gap: 40px;
-  width: 90%;
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 0 20px;
-  position: relative;
-  justify-content: center;
+  flex-direction: row-reverse; /* TOC on left, article on right */
   align-items: flex-start;
+  gap: 48px;
+  max-width: 1320px;
+  margin: 56px auto 100px;
+  padding: 0 48px;
 }
 
+/* ── TOC ── */
+.toc-container {
+  width: 220px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 28px;
+  height: fit-content;
+}
 
-.project-content h2,
-.project-content h3,
-.project-content h4 {
+.toc-wrapper {
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.toc-title {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 500;
-  margin: 2em 0 1em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--border);
 }
 
-.project-content p {
+.toc-content a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  padding: 4px 0 4px 10px;
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: color 0.18s, border-color 0.18s, padding-left 0.18s;
+}
+
+.toc-content a:hover,
+.toc-content a.toc-active {
+  color: var(--blue);
+  border-left-color: var(--pink);
+  padding-left: 14px;
+}
+
+.toc-level-h1 { font-weight: 600; color: var(--blue) !important; font-size: 0.88rem !important; margin-top: 6px; }
+.toc-level-h2 { padding-left: 10px !important; }
+.toc-level-h3 { padding-left: 20px !important; font-size: 0.78rem !important; }
+.toc-level-h4 { padding-left: 30px !important; font-size: 0.74rem !important; }
+
+/* ── Article ── */
+.project-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 820px;
+  color: var(--text);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   line-height: 1.8;
-  margin: 1em 0;
 }
 
+/* headings */
+.project-content h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--blue);
+  margin: 2.4em 0 0.6em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--border);
+}
+
+.project-content h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin: 2em 0 0.7em;
+}
+
+.project-content h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--blue-mid);
+  margin: 1.6em 0 0.5em;
+}
+
+.project-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--pink-mid);
+  margin: 1.4em 0 0.4em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+/* paragraph & inline */
+.project-content p {
+  margin: 0.9em 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.project-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.project-content em {
+  color: var(--pink-mid);
+  font-style: italic;
+}
+
+.project-content a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: var(--pink-pale);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+
+.project-content a:hover {
+  text-decoration-color: var(--pink-mid);
+}
+
+/* blockquote */
+.project-content blockquote {
+  margin: 1.6em 0;
+  padding: 16px 20px 16px 22px;
+  border-left: 3px solid var(--pink);
+  background: var(--pink-pale);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-content blockquote p { margin: 0; }
+
+/* code */
+.project-content code {
+  font-family: 'DM Mono', 'Fira Code', monospace;
+  font-size: 0.84em;
+  background: var(--blue-pale);
+  color: var(--blue-mid);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.project-content pre {
+  background: #f5f6ff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 1.6em 0;
+}
+
+.project-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+/* lists */
+.project-content ul,
+.project-content ol {
+  padding-left: 1.4em;
+  margin: 0.8em 0;
+  color: var(--muted);
+}
+
+.project-content li {
+  margin: 0.35em 0;
+  font-size: 0.97rem;
+}
+
+.project-content ul li::marker { color: var(--pink); }
+.project-content ol li::marker { color: var(--blue); font-weight: 600; }
+
+/* hr */
+.project-content hr {
+  border: none;
+  border-top: 1.5px solid var(--border);
+  margin: 2.4em 0;
+}
+
+/* tables */
+.project-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6em 0;
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-content th {
+  background: var(--blue);
+  color: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  padding: 12px 16px;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.project-content td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.project-content tr:last-child td { border-bottom: none; }
+
+.project-content tr:nth-child(even) td {
+  background: var(--blue-pale);
+}
+
+/* images */
 .project-content img {
   max-width: 100%;
-  max-height: 90vh;
   height: auto;
   display: block;
   margin: 2em auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  cursor: zoom-in;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out, box-shadow 0.2s;
 }
 
 .project-content img.visible {
@@ -414,341 +755,181 @@ The emotion analysis is based on the color wheel theory. Robert Plutchik, a psyc
   transform: translateY(0);
 }
 
-.title-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(1px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.project-content img:hover {
+  box-shadow: 0 12px 40px rgba(26,69,200,0.18);
 }
 
-
-.toc-container {
-  width: 200px;
-  position: sticky;
-  top: 20px;
-  height: fit-content;
-  order: -1; /* 移到左侧 */
-  margin-top: 40px; 
-}
-
-.toc-wrapper {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(5px);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.toc-title {
-  color: #1a45c8;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.2em;
-  font-weight: 600;
-  margin-bottom: 1em;
-}
-
-.toc-content {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.toc-content a {
-  color: #1a45c8;
-  text-decoration: none;
-  display: block;
-  padding: 5px 0;
-  transition: all 0.3s ease;
-}
-
-.toc-content a:hover {
-  color: #f787ce;
-  transform: translateX(5px);
-}
-
-.toc-content .toc-item {
-  margin: 5px 0;
-}
-
-.toc-content .toc-level-2 { padding-left: 0; }
-.toc-content .toc-level-3 { padding-left: 1em; }
-.toc-content .toc-level-4 { padding-left: 2em; }
-
-@media (max-width: 1400px) {
-  .toc-container {
-    width: 95%;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .project-container {
-    width: 100%;
-    padding: 0 15px;
-  }
-  
-  .toc-container {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-content {
-    margin: 20px 0;
-  }
-  
-  .project-title {
-    font-size: 4em;
-  }
-  
-  .project-subtitle {
-    font-size: 1.5em;
-  }
-  
-  .project-banner {
-    height: 600px;
-  }
-}
-
-.toc-content .toc-item {
-  margin: 8px 0;
-  font-size: 0.95em;
-  opacity: 0.9;
-}
-
-.toc-content .toc-level-h1 { 
-  padding-left: 0;
-  font-size: 1.1em;
-  font-weight: 600;
-  opacity: 1;
-}
-
-.toc-content .toc-level-h2 { 
-  padding-left: 1em;
-  font-size: 1em;
-  font-weight: 500;
-}
-
-.toc-content .toc-level-h3 { 
-  padding-left: 2em;
-  font-size: 0.95em;
-  color: #3a5ed8;
-}
-
-.toc-content .toc-level-h4 { 
-  padding-left: 3em;
-  font-size: 0.9em;
-  color: #5674e0;
-}
-
-.toc-content .toc-level-h5 { 
-  padding-left: 4em;
-  font-size: 0.85em;
-  color: #7289e6;
-}
-
-.toc-content .toc-level-h6 { 
-  padding-left: 5em;
-  font-size: 0.8em;
-  color: #8e9eec;
-}
-
+/* ── Image lightbox ── */
 .image-viewer {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  inset: 0;
+  background: rgba(10, 10, 30, 0.93);
   z-index: 1000;
   cursor: zoom-out;
+  backdrop-filter: blur(4px);
 }
 
-.image-viewer.active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.image-viewer.active { display: flex; justify-content: center; align-items: center; }
 
 .image-viewer-container {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 .image-viewer-container img {
   max-width: 100%;
   max-height: 90vh;
   object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+  opacity: 1 !important;
+  transform: none !important;
+  cursor: default;
 }
 
 .close-button {
   position: absolute;
-  top: -40px;
+  top: -44px;
   right: 0;
-  color: #ffffff;
-  font-size: 30px;
+  color: rgba(255,255,255,0.7);
+  font-size: 28px;
   cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
 }
+
+.close-button:hover { color: var(--pink); }
+
 .nav-btn {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
-  font-size: 2em;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.6em;
   cursor: pointer;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  padding: 18px 22px;
+  background: rgba(26,69,200,0.25);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
   z-index: 1001;
+  user-select: none;
 }
 
-.nav-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
+.nav-btn:hover { background: rgba(26,69,200,0.5); color: #fff; }
+.prev-btn { left: 24px; }
+.next-btn { right: 24px; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .toc-container { display: none; }
+  .project-container { flex-direction: column; padding: 0 28px; }
 }
 
-.prev-btn {
-  left: 20px;
-}
-
-.next-btn {
-  right: 20px;
+@media (max-width: 640px) {
+  .project-container { padding: 0 20px; margin-top: 36px; }
+  .project-title { font-size: 2.4rem; }
+  .title-overlay { padding: 0 6% 48px; }
+  .banner-scroll-hint { display: none; }
 }
 </style>
 
+<!-- ─────────────────────────────────────────
+     SCRIPTS
+───────────────────────────────────────── -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const images = document.querySelectorAll(".project-content img");
+document.addEventListener("DOMContentLoaded", function () {
 
-      let observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-              } else {
-                  entry.target.classList.remove("visible");
-              }
-          });
-      }, { threshold: 0.3 });
-
-      images.forEach(img => observer.observe(img));
-  });
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const content = document.querySelector('.project-content');
-    const tocContent = document.querySelector('.toc-content');
-    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    
-    headings.forEach((heading, index) => {
-      const id = `heading-${index}`;
-      heading.id = id;
-      
-      const link = document.createElement('a');
-      link.href = `#${id}`;
-      link.textContent = heading.textContent;
-      // 移除 toc-item 类，只保留 toc-level 类
-      link.className = `toc-level-${heading.tagName.toLowerCase()}`;
-      
-      tocContent.appendChild(link);
+  /* ── 1. Image fade-in on scroll ── */
+  const imgs = document.querySelectorAll(".project-content img");
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("visible");
+      else e.target.classList.remove("visible");
     });
-  
-    // 添加点击滚动效果
-    tocContent.addEventListener('click', (e) => {
+  }, { threshold: 0.15 });
+  imgs.forEach(img => imgObserver.observe(img));
+
+  /* ── 2. Build TOC ── */
+  const content   = document.querySelector('.project-content');
+  const tocContent = document.querySelector('.toc-content');
+  if (content && tocContent) {
+    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headings.forEach((h, i) => {
+      const id = `heading-${i}`;
+      h.id = id;
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = h.textContent;
+      a.className = `toc-level-${h.tagName.toLowerCase()}`;
+      tocContent.appendChild(a);
+    });
+
+    // smooth scroll
+    tocContent.addEventListener('click', e => {
       if (e.target.tagName === 'A') {
         e.preventDefault();
-        const targetId = e.target.getAttribute('href').slice(1);
-        const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(e.target.getAttribute('href').slice(1))
+          ?.scrollIntoView({ behavior: 'smooth' });
       }
     });
-  });
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const viewer = document.querySelector('.image-viewer');
-    const viewerImg = viewer.querySelector('img');
-    const closeBtn = viewer.querySelector('.close-button');
-    let currentImageIndex = 0;
-    let allImages = [];
-    
-    // 获取所有文章图片
-    allImages = Array.from(document.querySelectorAll('.project-content img'));
-    
-    // 添加左右箭头按钮到查看器
-    const prevBtn = document.createElement('div');
-    prevBtn.className = 'nav-btn prev-btn';
-    prevBtn.innerHTML = '❮';
-    
-    const nextBtn = document.createElement('div');
-    nextBtn.className = 'nav-btn next-btn';
-    nextBtn.innerHTML = '❯';
-    
-    viewer.appendChild(prevBtn);
-    viewer.appendChild(nextBtn);
-    
-    // 切换图片函数
-    function showImage(index) {
-      currentImageIndex = index;
-      viewerImg.src = allImages[index].src;
-      
-      // 控制导航按钮显示
-      prevBtn.style.display = index === 0 ? 'none' : 'block';
-      nextBtn.style.display = index === allImages.length - 1 ? 'none' : 'block';
-    }
-    
-    // 为所有图片添加点击事件
-    allImages.forEach((img, index) => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        showImage(index);
-        viewer.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    
-    // 添加导航按钮事件
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (currentImageIndex > 0) {
-        showImage(currentImageIndex - 1);
-      }
-    });
-    
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (currentImageIndex < allImages.length - 1) {
-        showImage(currentImageIndex + 1);
-      }
-    });
-    
-    // 添加键盘导航
-    document.addEventListener('keydown', (e) => {
-      if (!viewer.classList.contains('active')) return;
-      
-      if (e.key === 'ArrowLeft' && currentImageIndex > 0) {
-        showImage(currentImageIndex - 1);
-      } else if (e.key === 'ArrowRight' && currentImageIndex < allImages.length - 1) {
-        showImage(currentImageIndex + 1);
-      } else if (e.key === 'Escape') {
-        viewer.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-    
-    // 关闭查看器
-    [viewer, closeBtn].forEach(el => {
-      el.addEventListener('click', (e) => {
-        if (e.target === viewer || e.target === closeBtn) {
-          viewer.classList.remove('active');
-          document.body.style.overflow = '';
+    // active highlight
+    const tocLinks = tocContent.querySelectorAll('a');
+    const headingEls = content.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    const tocHighlight = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('toc-active'));
+          const active = tocContent.querySelector(`a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('toc-active');
         }
       });
-    });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    headingEls.forEach(h => tocHighlight.observe(h));
+  }
+
+  /* ── 3. Image lightbox ── */
+  const viewer    = document.querySelector('.image-viewer');
+  const viewerImg = viewer.querySelector('img');
+  const closeBtn  = viewer.querySelector('.close-button');
+  let current = 0;
+  const allImgs = Array.from(document.querySelectorAll('.project-content img'));
+
+  const prevBtn = Object.assign(document.createElement('div'), { className: 'nav-btn prev-btn', innerHTML: '❮' });
+  const nextBtn = Object.assign(document.createElement('div'), { className: 'nav-btn next-btn', innerHTML: '❯' });
+  viewer.append(prevBtn, nextBtn);
+
+  function showImg(idx) {
+    current = idx;
+    viewerImg.src = allImgs[idx].src;
+    prevBtn.style.display = idx === 0 ? 'none' : 'block';
+    nextBtn.style.display = idx === allImgs.length - 1 ? 'none' : 'block';
+  }
+
+  function openViewer(idx) {
+    showImg(idx);
+    viewer.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeViewer() {
+    viewer.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  allImgs.forEach((img, i) => img.addEventListener('click', () => openViewer(i)));
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); if (current > 0) showImg(current - 1); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); if (current < allImgs.length - 1) showImg(current + 1); });
+  [viewer, closeBtn].forEach(el => el.addEventListener('click', e => { if (e.target === el) closeViewer(); }));
+
+  document.addEventListener('keydown', e => {
+    if (!viewer.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft'  && current > 0)               showImg(current - 1);
+    if (e.key === 'ArrowRight' && current < allImgs.length-1) showImg(current + 1);
+    if (e.key === 'Escape') closeViewer();
   });
+
+});
 </script>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Musical Influence as a Directed Network | QING</title><meta name="keywords" content="data science,interaction"/><meta name="author" content="Qing H"/><meta name="copyright" content="Qing H"/><meta name="format-detection" content="telephone=no"/><meta name="theme-color" content="#0d0d0d"/><meta name="description" content="Finalist Award · 2021 MCM&#x2F;ICM Mathematical Contest in ModelingTeam Member · Qing He · Ruiqing Hu · Liang YinTools Python · NetworkX · scikit-learn · PandasFull paper you can find here. Overview W">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Musical Influence as a Directed Network">
+<meta property="og:url" content="https://hqselene.github.io/post/ee35e70c/index.html">
+<meta property="og:site_name" content="QING">
+<meta property="og:description" content="Finalist Award · 2021 MCM&#x2F;ICM Mathematical Contest in ModelingTeam Member · Qing He · Ruiqing Hu · Liang YinTools Python · NetworkX · scikit-learn · PandasFull paper you can find here. Overview W">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hqselene.github.io/images/musicinfluence/graph.png">
+<meta property="article:published_time" content="2026-02-28T09:34:54.000Z">
+<meta property="article:modified_time" content="2026-03-01T04:41:29.508Z">
+<meta property="article:author" content="Qing H">
+<meta property="article:tag" content="data science">
+<meta property="article:tag" content="interaction">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hqselene.github.io/images/musicinfluence/graph.png"><link rel="shortcut icon" href="/images/web/qing.png"><link rel="canonical" href="https://hqselene.github.io/post/ee35e70c/"/><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"/><link rel="stylesheet" href="/" media="print" onload="this.media='all'"/><link rel="stylesheet" href="/" media="print" onload="this.media='all'"/><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '/',
+      css: '/'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Musical Influence as a Directed Network',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-03-01 12:41:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4410159_t4lemh1w92.css"><link rel="stylesheet" href="/css/universe.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><!-- ... 现有的 sun 和 moon symbol ...--><symbol id="icon-star" viewBox="0 0 1024 1024"><path d="M512 747.946667l-286.72 150.613333 54.613333-318.293333-232.106666-226.133334 320.853333-46.933333L512 10.24l143.36 296.96 320.853333 46.933333-232.106666 226.133334 54.613333 318.293333z" fill="#f787ce"></path></symbol><symbol id="icon-flower" viewBox="0 0 1024 1024"><path d="M512 512m-192 0a192 192 0 1 0 384 0 192 192 0 1 0-384 0Z" fill="#f787ce"></path><path d="M512 85.333333c-47.146667 0-85.333333 38.186667-85.333333 85.333334v170.666666c0 47.146667 38.186667 85.333333 85.333333 85.333334s85.333333-38.186667 85.333333-85.333334V170.666667c0-47.146667-38.186667-85.333333-85.333333-85.333334z" fill="#f787ce"></path><path d="M512 597.333333c-47.146667 0-85.333333 38.186667-85.333333 85.333334v170.666666c0 47.146667 38.186667 85.333333 85.333333 85.333334s85.333333-38.186667 85.333333-85.333334v-170.666666c0-47.146667-38.186667-85.333333-85.333333-85.333334z" fill="#f787ce"></path><path d="M938.666667 512c0-47.146667-38.186667-85.333333-85.333334-85.333333h-170.666666c-47.146667 0-85.333333 38.186667-85.333334 85.333333s38.186667 85.333333 85.333334 85.333333h170.666666c47.146667 0 85.333333-38.186667 85.333334-85.333333z" fill="#f787ce"></path><path d="M426.666667 512c0-47.146667-38.186667-85.333333-85.333334-85.333333H170.666667c-47.146667 0-85.333333 38.186667-85.333334 85.333333s38.186667 85.333333 85.333334 85.333333h170.666666c47.146667 0 85.333333-38.186667 85.333334-85.333333z" fill="#f787ce"></path></symbol></svg>
+    <link rel="stylesheet" href="/css/custom_layout.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/project">Home</a></li>
+                <li><a href="/about">About Me</a></li>
+                <li><a href="/pdf/Qing_He_Selected_Works.pdf" target="_blank">Working Sample</a></li>
+                <li><a href="/pdf/Qing_He_CV.pdf" target="_blank">CV</a></li>
+                <li><a href="/publication">Publication</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <style>
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1000;
+    }
+    
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: #1a45c8;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #f787ce;
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: #f787ce;
+    }
+
+    
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: flex;
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 1001; 
+        }
+    
+        .nav-list {
+        display: block;
+        flex-direction: column;
+        width: -200px;
+        position: fixed;
+        top: 0;
+        left: 200px;  /* 改用left定位 */
+        height: auto;
+        background: #e2e1e700;
+        padding: 80px 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-list.active {
+        left: 0;  /* 显示时移动到可见区域 */
+        background: rgba(247, 135, 206, 0.15);
+        backdrop-filter: blur(8px);
+        visibility: visible;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-list li {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-list.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* 为每个菜单项添加延迟动画 */
+    .nav-list li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-list li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-list li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-list li:nth-child(4) { transition-delay: 0.4s; }
+}
+    </style>
+    
+    <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-list').classList.toggle('active');
+        this.classList.toggle('active');
+    });
+    </script>
+</body>
+
+
+
+<div id="proj">
+  
+    <div class="project-banner" style="background-image: url('/images/musicinfluence/graph.png')">
+      
+        <div class="title-overlay">
+          <div class="title-overlay-inner">
+            <h1 class="project-title">Musical Influence as a Directed Network</h1>
+            
+          </div>
+        </div>
+      
+      <div class="banner-scroll-hint">scroll ↓</div>
+    </div>
+  
+
+  <div class="project-container">
+
+    <!-- TOC sidebar -->
+    
+    
+      <aside class="toc-container">
+        <div class="toc-wrapper">
+          <div class="toc-title">Outline</div>
+          <div class="toc-content"></div>
+        </div>
+      </aside>
+    
+
+    <!-- Main content -->
+    <article class="project-content">
+      <p><strong>Finalist Award</strong> · 2021 MCM&#x2F;ICM Mathematical Contest in Modeling<br><strong>Team Member</strong> · Qing He · Ruiqing Hu · Liang Yin<br><strong>Tools</strong> Python · NetworkX · scikit-learn · Pandas<br>Full paper you can find <a target="_blank" rel="noopener" href="https://github.com/HqSelene/2021MCM-ICM/blob/main/The%20research%20of%20musical%20influence%20based%20on%20the%20characteristic%20of%20a%20network.pdf">here</a>.</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><div class="overview-quote">
+Who shapes the sound of an era? This project builds a mathematical framework to trace how influence travels through 5600+ musicians, using modified PageRank, entropy-weighted similarity, and dynamic graph analysis.
+</div>
+
+<h2 id="Quantifying-the-Unmeasurable"><a href="#Quantifying-the-Unmeasurable" class="headerlink" title="Quantifying the Unmeasurable"></a>Quantifying the Unmeasurable</h2><p>Most accounts of musical evolution rely on narrative: critics, anecdote, history books. This project takes a different approach by treating the relationships between musicians as a directed graph, where every edge encodes who influenced whom, and every node carries an 11-dimensional acoustic feature vector.</p>
+<p>The central question: can we move beyond subjective claims and rigorously model how influence propagates, which genres are truly distinct, and when musical revolutions actually occurred?</p>
+<p><img src="/images/musicinfluence/graph.png" alt="The Directed Network"></p>
+<h2 id="Four-Interlocking-Models"><a href="#Four-Interlocking-Models" class="headerlink" title="Four Interlocking Models"></a>Four Interlocking Models</h2><p>Rather than a single algorithm, this project chains four models together - each feeding into the next.</p>
+<h3 id="Modified-PageRank"><a href="#Modified-PageRank" class="headerlink" title="Modified PageRank"></a>Modified PageRank</h3><p>Standard PageRank adapted for music influence, with damping factor q &#x3D; 0.3 (vs. the web’s 0.85). The key insight: musical followers becoming influencers themselves is far less probable than web browsing chains. A lower damping factor reflects that creative influence dissipates more quickly than hyperlink traversal.</p>
+<h3 id="Entropy-Weighted-Similarity"><a href="#Entropy-Weighted-Similarity" class="headerlink" title="Entropy-Weighted Similarity"></a>Entropy-Weighted Similarity</h3><p>Feature weights derived via Information Entropy (EWM) across 11 acoustic dimensions — danceability, energy, valence, tempo, loudness, acousticness, instrumentalness, liveness, speechiness, mode, and key. The principle: higher entropy in a feature → higher discriminative power → higher weight. Similarity is then the inverse of the Weighted Euclidean Distance between two artist vectors.</p>
+<h3 id="Hierarchical-Clustering-PCA"><a href="#Hierarchical-Clustering-PCA" class="headerlink" title="Hierarchical Clustering + PCA"></a>Hierarchical Clustering + PCA</h3><p>Complete-linkage hierarchical clustering groups all 20 genres into 4 macro-clusters. PCA reduces the feature space to 3D for visualization. The surprising finding: instrumentalness and speechiness are the primary axes separating genres — not the more intuitive energy or tempo.</p>
+<h3 id="Dynamic-PageRank"><a href="#Dynamic-PageRank" class="headerlink" title="Dynamic PageRank"></a>Dynamic PageRank</h3><p>Extends the base model by weighting each influence edge with two dynamic indices: θ_time (temporal distance between artists’ active periods) and θ_genre (cross-genre musical distance). Artists who transcend both era and genre rank higher as “dynamic influencers”, a more nuanced measure than raw follower count.</p>
+<h2 id="Key-Findings"><a href="#Key-Findings" class="headerlink" title="Key Findings"></a>Key Findings</h2><p>After running the full model pipeline across 5,603 musicians and ~42,000 influence edges, five results stood out.</p>
+<ol>
+<li><p>Influence follows a power law. A handful of artists, such as The Beatles, Bob Dylan, Hank Williams, account for a disproportionate share of total network influence, consistent with scale-free network behavior. The top 20 artists by PageRank collectively shape the trajectories of thousands of followers.<br><img src="/images/musicinfluence/rank_pr_value.png" alt="The Rank of musical influence by the PR value"></p>
+</li>
+<li><p>Mainstream genres self-reinforce; niche genres borrow. Jazz, Pop&#x2F;Rock, and Country receive 70%+ of their influence from within their own genre. Electronic, New Age, and Avant-Garde draw less than 40% internally, actively absorbing from adjacent styles. Established genres have stable identities; emerging ones are still searching for one.<br><img src="/images/musicinfluence/ifsp.png" alt="IFSP of Different Music Genres"></p>
+</li>
+<li><p>Three musical revolutions, verified quantitatively. Similarity-over-time analysis pinpoints the 1950s Rock &amp; Roll emergence, the 1960s British Invasion, and 1980s contemporary R&amp;B as moments of maximal stylistic discontinuity. These align precisely with known historical events, which means that the model independently recovered what music historians already knew.<br><img src="/images/musicinfluence/event.png" alt="Revolution Events and the Music Similarities between years"><br><img src="/images/musicinfluence/artist_time.png" alt="Artists of Different Genres Time Distribution"></p>
+</li>
+<li><p>Influencers don’t always convert followers. Only 52.4% of followers show increased musical similarity to their influencer’s style over time. The other 47.6% diverge. Imitation and divergence coexist as creative strategies, and the data can’t fully distinguish which is which.</p>
+</li>
+<li><p>Genre identity lives in two dimensions. Of all 11 acoustic features, speechiness and instrumentalness show the largest gap between genre clusters. Energy and tempo, which most people intuitively associate with genre, are comparatively weak discriminators.</p>
+</li>
+</ol>
+
+    </article>
+
+  </div>
+
+  <!-- Image lightbox -->
+  <div class="image-viewer">
+    <div class="image-viewer-container">
+      <img src="" alt="">
+      <div class="close-button">×</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────
+     STYLES
+───────────────────────────────────────── -->
+<style>
+/* ── Variables ── */
+:root {
+  --blue:       #1a45c8;
+  --blue-mid:   #2d57e0;
+  --blue-light: #4a70f0;
+  --blue-pale:  rgba(26, 69, 200, 0.07);
+  --pink:       #f787ce;
+  --pink-mid:   #e060b0;
+  --pink-pale:  rgba(247, 135, 206, 0.12);
+  --purple:     #8b6fe8;
+  --bg:         #e8e8ee;
+  --surface:    rgba(255,255,255,0.85);
+  --text:       #1a1a2e;
+  --muted:      #5a5a7a;
+  --border:     rgba(26, 69, 200, 0.12);
+  --radius:     14px;
+  --shadow-sm:  0 2px 12px rgba(26,69,200,0.07);
+  --shadow-md:  0 6px 28px rgba(26,69,200,0.11);
+}
+
+/* ── Banner ── */
+.project-banner {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.project-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(232,232,238,0) 30%,
+    rgba(232,232,238,0.55) 70%,
+    rgba(232,232,238,0.92) 100%
+  );
+}
+
+.title-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 72px 8%;
+}
+
+.title-overlay-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+
+.title-meta-top {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pink-mid);
+  margin-bottom: 14px;
+}
+
+.project-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.05;
+  color: var(--blue);
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.project-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--muted);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.banner-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.banner-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: var(--pink-pale);
+  color: var(--pink-mid);
+  border: 1px solid rgba(247,135,206,0.3);
+  backdrop-filter: blur(6px);
+}
+
+.banner-scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  right: 48px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  opacity: 0.5;
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+/* ── No-cover header ── */
+.project-header-simple {
+  background: var(--bg);
+  padding: 80px 8% 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-simple-inner { max-width: 760px; }
+
+.project-title-inline {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: var(--blue);
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.project-subtitle-inline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Layout ── */
+.project-container {
+  display: flex;
+  flex-direction: row-reverse; /* TOC on left, article on right */
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1320px;
+  margin: 56px auto 100px;
+  padding: 0 48px;
+}
+
+/* ── TOC ── */
+.toc-container {
+  width: 220px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 28px;
+  height: fit-content;
+}
+
+.toc-wrapper {
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.toc-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.toc-content a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  padding: 4px 0 4px 10px;
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+  transition: color 0.18s, border-color 0.18s, padding-left 0.18s;
+}
+
+.toc-content a:hover,
+.toc-content a.toc-active {
+  color: var(--blue);
+  border-left-color: var(--pink);
+  padding-left: 14px;
+}
+
+.toc-level-h1 { font-weight: 600; color: var(--blue) !important; font-size: 0.88rem !important; margin-top: 6px; }
+.toc-level-h2 { padding-left: 10px !important; }
+.toc-level-h3 { padding-left: 20px !important; font-size: 0.78rem !important; }
+.toc-level-h4 { padding-left: 30px !important; font-size: 0.74rem !important; }
+
+/* ── Article ── */
+.project-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 820px;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* headings */
+.project-content h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--blue);
+  margin: 2.4em 0 0.6em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--border);
+}
+
+.project-content h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin: 2em 0 0.7em;
+}
+
+.project-content h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--blue-mid);
+  margin: 1.6em 0 0.5em;
+}
+
+.project-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--pink-mid);
+  margin: 1.4em 0 0.4em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+/* paragraph & inline */
+.project-content p {
+  margin: 0.9em 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.project-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.project-content em {
+  color: var(--pink-mid);
+  font-style: italic;
+}
+
+.project-content a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: var(--pink-pale);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+
+.project-content a:hover {
+  text-decoration-color: var(--pink-mid);
+}
+
+/* blockquote */
+.project-content blockquote {
+  margin: 1.6em 0;
+  padding: 16px 20px 16px 22px;
+  border-left: 3px solid var(--pink);
+  background: var(--pink-pale);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-content blockquote p { margin: 0; }
+
+/* code */
+.project-content code {
+  font-family: 'DM Mono', 'Fira Code', monospace;
+  font-size: 0.84em;
+  background: var(--blue-pale);
+  color: var(--blue-mid);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.project-content pre {
+  background: #f5f6ff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 1.6em 0;
+}
+
+.project-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+/* lists */
+.project-content ul,
+.project-content ol {
+  padding-left: 1.4em;
+  margin: 0.8em 0;
+  color: var(--muted);
+}
+
+.project-content li {
+  margin: 0.35em 0;
+  font-size: 0.97rem;
+}
+
+.project-content ul li::marker { color: var(--pink); }
+.project-content ol li::marker { color: var(--blue); font-weight: 600; }
+
+/* hr */
+.project-content hr {
+  border: none;
+  border-top: 1.5px solid var(--border);
+  margin: 2.4em 0;
+}
+
+/* tables */
+.project-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6em 0;
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-content th {
+  background: var(--blue);
+  color: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  padding: 12px 16px;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.project-content td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.project-content tr:last-child td { border-bottom: none; }
+
+.project-content tr:nth-child(even) td {
+  background: var(--blue-pale);
+}
+
+/* images */
+.project-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2em auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  cursor: zoom-in;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out, box-shadow 0.2s;
+}
+
+.project-content img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-content img:hover {
+  box-shadow: 0 12px 40px rgba(26,69,200,0.18);
+}
+
+/* ── Image lightbox ── */
+.image-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 30, 0.93);
+  z-index: 1000;
+  cursor: zoom-out;
+  backdrop-filter: blur(4px);
+}
+
+.image-viewer.active { display: flex; justify-content: center; align-items: center; }
+
+.image-viewer-container {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.image-viewer-container img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+  opacity: 1 !important;
+  transform: none !important;
+  cursor: default;
+}
+
+.close-button {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.close-button:hover { color: var(--pink); }
+
+.nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 1.6em;
+  cursor: pointer;
+  padding: 18px 22px;
+  background: rgba(26,69,200,0.25);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  z-index: 1001;
+  user-select: none;
+}
+
+.nav-btn:hover { background: rgba(26,69,200,0.5); color: #fff; }
+.prev-btn { left: 24px; }
+.next-btn { right: 24px; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .toc-container { display: none; }
+  .project-container { flex-direction: column; padding: 0 28px; }
+}
+
+@media (max-width: 640px) {
+  .project-container { padding: 0 20px; margin-top: 36px; }
+  .project-title { font-size: 2.4rem; }
+  .title-overlay { padding: 0 6% 48px; }
+  .banner-scroll-hint { display: none; }
+}
+</style>
+
+<!-- ─────────────────────────────────────────
+     SCRIPTS
+───────────────────────────────────────── -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ── 1. Image fade-in on scroll ── */
+  const imgs = document.querySelectorAll(".project-content img");
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("visible");
+      else e.target.classList.remove("visible");
+    });
+  }, { threshold: 0.15 });
+  imgs.forEach(img => imgObserver.observe(img));
+
+  /* ── 2. Build TOC ── */
+  const content   = document.querySelector('.project-content');
+  const tocContent = document.querySelector('.toc-content');
+  if (content && tocContent) {
+    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headings.forEach((h, i) => {
+      const id = `heading-${i}`;
+      h.id = id;
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = h.textContent;
+      a.className = `toc-level-${h.tagName.toLowerCase()}`;
+      tocContent.appendChild(a);
+    });
+
+    // smooth scroll
+    tocContent.addEventListener('click', e => {
+      if (e.target.tagName === 'A') {
+        e.preventDefault();
+        document.getElementById(e.target.getAttribute('href').slice(1))
+          ?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // active highlight
+    const tocLinks = tocContent.querySelectorAll('a');
+    const headingEls = content.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    const tocHighlight = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('toc-active'));
+          const active = tocContent.querySelector(`a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    headingEls.forEach(h => tocHighlight.observe(h));
+  }
+
+  /* ── 3. Image lightbox ── */
+  const viewer    = document.querySelector('.image-viewer');
+  const viewerImg = viewer.querySelector('img');
+  const closeBtn  = viewer.querySelector('.close-button');
+  let current = 0;
+  const allImgs = Array.from(document.querySelectorAll('.project-content img'));
+
+  const prevBtn = Object.assign(document.createElement('div'), { className: 'nav-btn prev-btn', innerHTML: '❮' });
+  const nextBtn = Object.assign(document.createElement('div'), { className: 'nav-btn next-btn', innerHTML: '❯' });
+  viewer.append(prevBtn, nextBtn);
+
+  function showImg(idx) {
+    current = idx;
+    viewerImg.src = allImgs[idx].src;
+    prevBtn.style.display = idx === 0 ? 'none' : 'block';
+    nextBtn.style.display = idx === allImgs.length - 1 ? 'none' : 'block';
+  }
+
+  function openViewer(idx) {
+    showImg(idx);
+    viewer.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeViewer() {
+    viewer.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  allImgs.forEach((img, i) => img.addEventListener('click', () => openViewer(i)));
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); if (current > 0) showImg(current - 1); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); if (current < allImgs.length - 1) showImg(current + 1); });
+  [viewer, closeBtn].forEach(el => el.addEventListener('click', e => { if (e.target === el) closeViewer(); }));
+
+  document.addEventListener('keydown', e => {
+    if (!viewer.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft'  && current > 0)               showImg(current - 1);
+    if (e.key === 'ArrowRight' && current < allImgs.length-1) showImg(current + 1);
+    if (e.key === 'Escape') closeViewer();
+  });
+
+});
+</script>

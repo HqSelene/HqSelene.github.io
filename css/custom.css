@@ -100,3 +100,32 @@ body {
 .article-sort-title {
   color: #FFFFFF !important;
 }
+
+/* ===== Caption Style for Images ===== */
+/* This applies to images inserted with the {% img %} tag helper */
+#post-content .justified-gallery > figure,
+#post-content > p > .justified-gallery > figure {
+  margin-bottom: 10px; /* Adjust spacing for gallery figures */
+}
+
+#post-content figure,
+.project-content figure {
+  padding: 0;
+  margin: 1.5em auto;
+  text-align: center;
+}
+
+#post-content figure img,
+.project-content figure img {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px -4px rgba(0,0,0,0.1);
+}
+
+#post-content figcaption,
+.project-content figcaption {
+  margin-top: 10px;
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: var(--font-color-secondary);
+  text-align: center;
+}

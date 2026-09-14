@@ -30,7 +30,7 @@ Qing He 的独立个人作品集网站，专注个人定位、项目案例、研
 
 ## Recent Major Changes
 
-- 2026-09-14：首页改为更紧凑的作品集入口，采用左侧介绍、右侧研究领域轨道图和低高度横向滑动的精选项目条；首屏可同时看到介绍、蓝色 `HCI ✦ AI ✦ PRODUCT ✦ SPACE ✦ DATA` 分隔条与项目，并适配平板和手机。
+- 2026-09-14：首页改为更紧凑的作品集入口，采用左侧介绍、右侧研究领域轨道图和低高度横向滑动的精选项目条；首屏可同时看到介绍、蓝色 `HCI ✦ AI ✦ PRODUCT ✦ SPACE ✦ DATA` 分隔条与项目，并将 Warren 纳入首页精选项目，适配平板和手机。
 - 2026-07-30：新增 Products & Tools 项目 Warren for VS Code，使用项目仓库中的正式品牌封面、应用截图和图标，并支持项目网站与 GitHub 等可选外部链接。
 - 2026-07-30：将项目体系重组为 Products & Tools、Interactive Experiences、Data & Research 和 Critical Design；分类选项改为集中定义，并增加新项目维护指南、可选旧博客链接和独立 Featured 控制。
 - 2026-07-30：将项目详情页 Gallery 从纵向拼贴改为紧凑的横向滑动胶片，限制缩略图尺寸并保留下一张露出，支持触控横滑和桌面左右按钮；全屏 Lightbox 浏览保持不变。

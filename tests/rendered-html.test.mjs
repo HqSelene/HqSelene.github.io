@@ -53,5 +53,6 @@ test("keeps the practice bar between the introduction and projects", async () =>
   assert.ok(workIndex > barIndex);
 
   const projectCards = html.match(/class="project-card project-card--compact"/g);
-  assert.equal(projectCards?.length, 3);
+  assert.equal(projectCards?.length, 4);
+  assert.match(html, /Warren for VS Code/);
 });

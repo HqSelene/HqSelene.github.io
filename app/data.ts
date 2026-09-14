@@ -38,6 +38,7 @@ export const projects: Project[] = [
     title: "Warren for VS Code",
     category: "Products & Tools",
     year: "2026",
+    featured: true,
     intro: "All your coding agents, at a glance.",
     summary:
       "An always-on-top desktop companion that brings real Claude, Codex, and OpenCode sessions from every VS Code window into one calm attention layer.",

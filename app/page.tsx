@@ -84,7 +84,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="compact-project-row">
-            {featuredProjects.slice(0, 3).map((project, index) => (
+            {featuredProjects.slice(0, 4).map((project, index) => (
               <ProjectCard
                 key={project.slug}
                 project={project}

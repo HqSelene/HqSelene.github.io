@@ -75,6 +75,24 @@ export default async function ProjectDetail({
           </dl>
         </section>
 
+        {project.links && project.links.length > 0 && (
+          <section className="case-links" aria-label={`${project.title} links`}>
+            <p className="eyebrow">Visit project</p>
+            <div>
+              {project.links.map((link) => (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={link.url}
+                >
+                  {link.label} <span aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
         <div className="case-narrative">
           {project.sections.map((section, index) => (
             <section className="case-section" key={section.title}>
@@ -96,21 +114,23 @@ export default async function ProjectDetail({
           images={[project.cover, ...project.gallery]}
         />
 
-        <section className="case-archive">
-          <p>
-            This focused case study preserves the project inside the new
-            portfolio. The original long-form page remains available as an
-            archive.
-          </p>
-          <a
-            className="text-link"
-            href={project.archiveUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open original case study <span>↗</span>
-          </a>
-        </section>
+        {project.archiveUrl && (
+          <section className="case-archive">
+            <p>
+              This focused case study preserves the project inside the new
+              portfolio. The original long-form page remains available as an
+              archive.
+            </p>
+            <a
+              className="text-link"
+              href={project.archiveUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open original case study <span>↗</span>
+            </a>
+          </section>
+        )}
 
         <Link className="next-project" href={`/projects/${nextProject.slug}`}>
           <span className="eyebrow">Next project</span>

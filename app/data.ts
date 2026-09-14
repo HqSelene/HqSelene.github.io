@@ -1,16 +1,30 @@
+export const projectCategories = [
+  "Products & Tools",
+  "Interactive Experiences",
+  "Data & Research",
+  "Critical Design",
+] as const;
+
+export type ProjectCategory = (typeof projectCategories)[number];
+
 export type Project = {
   slug: string;
   title: string;
-  category: "Interaction & Product" | "Design" | "Data Science";
+  category: ProjectCategory;
   year: string;
   intro: string;
   summary: string;
   tags: string[];
   cover: string;
   gallery: string[];
+  featured?: boolean;
   role: string;
   tools: string;
-  archiveUrl: string;
+  archiveUrl?: string;
+  links?: {
+    label: string;
+    url: string;
+  }[];
   sections: {
     eyebrow: string;
     title: string;
@@ -20,10 +34,64 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "warren-for-vs-code",
+    title: "Warren for VS Code",
+    category: "Products & Tools",
+    year: "2026",
+    intro: "All your coding agents, at a glance.",
+    summary:
+      "An always-on-top desktop companion that brings real Claude, Codex, and OpenCode sessions from every VS Code window into one calm attention layer.",
+    tags: ["Developer tool", "Multi-agent workflows", "VS Code"],
+    cover: "/media/warren/cover.png",
+    gallery: [
+      "/media/warren/app.png",
+      "/media/warren/icon.png",
+    ],
+    role: "Product designer · Developer",
+    tools: "TypeScript · VS Code API · Electron · Agent lifecycle hooks",
+    links: [
+      {
+        label: "Project website",
+        url: "https://hqselene.github.io/Warren-for-VS-Code/",
+      },
+      {
+        label: "GitHub repository",
+        url: "https://github.com/HqSelene/Warren-for-VS-Code",
+      },
+    ],
+    sections: [
+      {
+        eyebrow: "Problem",
+        title: "Agentic coding creates an attention problem",
+        body: [
+          "Running several coding agents across different workspaces changes the bottleneck from doing every task manually to noticing which session needs attention. Permission requests, completed turns, and failures are easy to miss when they are scattered across windows and terminals.",
+          "Warren was designed as a small, persistent attention layer: visible enough to keep parallel work legible without becoming another full-size dashboard competing for focus.",
+        ],
+      },
+      {
+        eyebrow: "Product",
+        title: "One calm view across every workspace",
+        body: [
+          "The always-on-top companion groups live agents by VS Code workspace and translates their lifecycle signals into four clear states: Working, Needs You, Done, and Error.",
+          "Each card shows a concise preview of the current task. Selecting it returns directly to the originating VS Code window and terminal, while a compact draggable mode keeps the overall status visible when screen space is limited.",
+        ],
+      },
+      {
+        eyebrow: "System",
+        title: "Local signals, not stored conversations",
+        body: [
+          "A VS Code bridge, Electron companion, and dedicated Claude, Codex, and OpenCode adapters communicate through an in-memory HTTP broker bound to 127.0.0.1.",
+          "The system uses real lifecycle hooks rather than guessing from terminal output, and does not persist full prompts, responses, source code, tool inputs, credentials, or terminal content.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "fitness-tracker",
     title: "FitnessTracker",
-    category: "Interaction & Product",
+    category: "Products & Tools",
     year: "2026",
+    featured: true,
     intro: "A future self, made tangible.",
     summary:
       "An experimental platform exploring how AI-generated self-modeling can support motivation and long-term behavior change in fitness.",
@@ -59,8 +127,9 @@ export const projects: Project[] = [
   {
     slug: "sounds-up",
     title: "SoundsUp",
-    category: "Interaction & Product",
+    category: "Products & Tools",
     year: "2025",
+    featured: true,
     intro: "Let every live rhythm echo once more.",
     summary:
       "A memory companion for live music that turns emotion, media, and context into personal digital tickets.",
@@ -97,8 +166,9 @@ export const projects: Project[] = [
   {
     slug: "emotion-clock",
     title: "Emotion “Clock”",
-    category: "Interaction & Product",
+    category: "Interactive Experiences",
     year: "2025",
+    featured: true,
     intro: "Making collective interpretation visible.",
     summary:
       "A participatory museum system that lets visitors build and see a shared understanding of an exhibit in real time.",
@@ -139,8 +209,9 @@ export const projects: Project[] = [
   {
     slug: "leap-of-faith",
     title: "LEAP OF “FAITH”",
-    category: "Design",
+    category: "Critical Design",
     year: "2025",
+    featured: true,
     intro: "A speculative world split between reality and the virtual.",
     summary:
       "A science-fiction narrative and visual system examining identity, control, and belief in a society shaped by virtual life.",
@@ -179,7 +250,7 @@ export const projects: Project[] = [
   {
     slug: "dont-touch",
     title: "Don’t Touch",
-    category: "Design",
+    category: "Critical Design",
     year: "2025",
     intro: "An architecture that questions institutional authority.",
     summary:
@@ -218,7 +289,7 @@ export const projects: Project[] = [
   {
     slug: "emotion-space",
     title: "Emotion Space Self-Construction",
-    category: "Design",
+    category: "Critical Design",
     year: "2023",
     intro: "Building room for emotions that have nowhere to go.",
     summary:
@@ -251,7 +322,7 @@ export const projects: Project[] = [
   {
     slug: "musical-influence",
     title: "Musical Influence as a Directed Network",
-    category: "Data Science",
+    category: "Data & Research",
     year: "2021",
     intro: "Who shapes the sound of an era?",
     summary:
@@ -290,7 +361,7 @@ export const projects: Project[] = [
   {
     slug: "aid-sync",
     title: "Aid-Sync",
-    category: "Data Science",
+    category: "Data & Research",
     year: "2025",
     intro: "Designing a mutual-aid information ecosystem.",
     summary:
@@ -329,7 +400,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.slice(0, 4);
+export const featuredProjects = projects.filter((project) => project.featured);
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);

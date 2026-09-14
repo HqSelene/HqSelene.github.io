@@ -2,14 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { ProjectCard } from "../components";
-import type { Project } from "../data";
+import { projectCategories, type Project } from "../data";
 
-const categories = [
-  "All projects",
-  "Interaction & Product",
-  "Design",
-  "Data Science",
-] as const;
+const categories = ["All projects", ...projectCategories] as const;
 
 type Category = (typeof categories)[number];
 
@@ -77,4 +72,3 @@ export function ProjectExplorer({ projects }: { projects: Project[] }) {
     </section>
   );
 }
-

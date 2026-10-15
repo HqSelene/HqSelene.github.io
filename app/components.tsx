@@ -12,9 +12,10 @@ export function SiteHeader() {
       <div className="header-actions">
         <nav className="desktop-nav" aria-label="Primary navigation">
           <Link href="/projects">Projects</Link>
+            <Link href="/posts">Posts</Link>
           <Link href="/about">About</Link>
           <Link href="/publications">Publications</Link>
-          <a href="mailto:qingh@upenn.edu">Contact</a>
+          <a href="/Qing_He_CV.pdf" target="_blank" rel="noreferrer">CV</a>
         </nav>
 
         <ThemeToggle />
@@ -23,9 +24,10 @@ export function SiteHeader() {
           <summary aria-label="Open navigation">Menu</summary>
           <nav aria-label="Mobile navigation">
             <Link href="/projects">Projects</Link>
+            <Link href="/posts">Posts</Link>
             <Link href="/about">About</Link>
             <Link href="/publications">Publications</Link>
-            <a href="mailto:qingh@upenn.edu">Contact</a>
+            <a href="/Qing_He_CV.pdf" target="_blank" rel="noreferrer">CV</a>
           </nav>
         </details>
       </div>

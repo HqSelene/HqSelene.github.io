@@ -24,3 +24,44 @@ The site uses the vinext starter structure and is ready for local development
 or a later Sites deployment. Project media and PDFs are self-contained under
 `public/`.
 
+
+## Recent updates and public posts
+
+The homepage shows the five latest updates, three selected projects, publications,
+and the three latest published posts. `/updates` and `/posts` contain the full archives.
+
+### Edit recent updates
+
+Edit `content/updates.json`. Each entry needs `date` (`YYYY-MM-DD`) and `text`;
+`url` is optional and accepts an internal path or an HTTP(S) link:
+
+```json
+[
+  {
+    "date": "2026-10-14",
+    "text": "A short update in your own words.",
+    "url": "/posts/my-note"
+  }
+]
+```
+
+Entries are sorted newest first automatically. Use `[]` for an empty list.
+Dates display as month/year; their full date remains in the page markup.
+
+### Write a post
+
+Copy `content/posts/first-note.md` to a descriptive filename, such as
+`content/posts/my-note.md`. The filename becomes `/posts/my-note`.
+Set `title`, `date`, and `summary` in the YAML frontmatter. Keep `draft: true`
+while writing; set `draft: false` to publish. Drafts have no public detail page
+and do not appear in lists. The included template is intentionally a draft.
+
+Write the body in Markdown: headings, lists, links, images, blockquotes, and
+fenced code blocks are supported. Store images under `public/media/` and link
+with `/media/filename.png`. Markdown is trusted repository-authored content
+and supports raw HTML; do not populate it with untrusted user submissions.
+
+Content is bundled at build time, including on Workers (no runtime filesystem).
+Rebuild and deploy after edits for changes to appear on the live website.
+Editing a file on GitHub updates the live site only if automatic deployment
+has been configured for that repository.

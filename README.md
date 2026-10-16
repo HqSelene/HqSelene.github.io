@@ -27,8 +27,14 @@ or a later Sites deployment. Project media and PDFs are self-contained under
 
 ## Recent updates and public posts
 
-The homepage shows the five latest updates, three selected projects, publications,
-and the three latest published posts. `/updates` and `/posts` contain the full archives.
+The homepage preserves the animated landing screen, followed by Recent Projects,
+Selected Publications, and three Selected Projects. `/updates` and `/posts` remain
+available as separate archives.
+
+### Edit ongoing projects
+
+Edit `content/recent-projects.json`. Each entry has a `title` and `description`.
+Entries appear in file order and describe work in progress, separately from publications.
 
 ### Edit recent updates
 

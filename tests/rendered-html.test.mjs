@@ -13,7 +13,7 @@ async function render(path) {
 test('home renders research sections in order and keeps the animated identity', async () => {
   const { status, html } = await render('/');
   assert.equal(status, 200);
-  const headings = ['Recent Updates', 'Selected Publications', 'Selected Projects', 'Recent Posts'];
+  const headings = ['Recent Projects', 'Selected Publications', 'Selected Projects'];
   let previous = -1;
   for (const heading of headings) {
     const position = html.indexOf(heading);
@@ -21,6 +21,10 @@ test('home renders research sections in order and keeps the animated identity', 
     previous = position;
   }
   assert.match(html, /hero-orbit/);
+  assert.match(html, /href="#recent-projects"/);
+  assert.match(html, /LLM for Qualitative Coding/);
+  assert.match(html, /Simulation for Architecture/);
+  assert.match(html, /ECSS Framework/);
   assert.match(html, /cosmic-layer/);
   assert.match(html, /href="\/posts"/);
   assert.doesNotMatch(html, /Your first note/);

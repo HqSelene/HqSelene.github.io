@@ -1,0 +1,14 @@
+[
+  {
+    "title": "LLM for Qualitative Coding",
+    "description": "Observing workflows that use large language models for qualitative coding, with a focus on how people work with LLMs during the coding process."
+  },
+  {
+    "title": "Simulation for Architecture",
+    "description": "Developing a simulation tool for architectural work, exploring how simulation can support the design process."
+  },
+  {
+    "title": "ECSS Framework",
+    "description": "An ongoing framework project, currently under development."
+  }
+]

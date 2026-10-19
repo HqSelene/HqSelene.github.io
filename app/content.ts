@@ -2,7 +2,7 @@ import { parse as parseYaml } from "yaml";
 import { marked } from "marked";
 import updateData from "../content/updates.json";
 
-type Update = { date: string; text: string; url?: string };
+type Update = { date: string; description: string };
 export type Post = { slug: string; title: string; date: string; summary: string; html: string };
 
 function validDate(value: unknown): value is string {
@@ -10,13 +10,9 @@ function validDate(value: unknown): value is string {
     !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 }
 
-export function safeContentUrl(value: string) {
-  return /^\/(?!\/)/.test(value) || /^https?:\/\//i.test(value);
-}
-
 export const updates: Update[] = updateData.map((item) => {
-  if (!validDate(item.date) || !item.text.trim() || (item.url && !safeContentUrl(item.url))) {
-    throw new Error("Invalid entry in content/updates.json: check date, text and URL.");
+  if (!validDate(item.date) || typeof item.description !== "string" || !item.description.trim()) {
+    throw new Error("Invalid entry in content/updates.json: use a valid YYYY-MM-DD date and a non-empty description.");
   }
   return item;
 }).sort((a, b) => b.date.localeCompare(a.date));

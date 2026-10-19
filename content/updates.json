@@ -1,7 +1,10 @@
 [
   {
     "date": "2026-10-14",
-    "text": "This website now has a space for public notes and recent updates.",
-    "url": "/posts"
+    "description": "I am applying for PhD in HCI!"
+  },
+  {
+    "date": "2026-06-01",
+    "description": "I am working as a research assistant with Danaé at PennHCI lab!"
   }
 ]

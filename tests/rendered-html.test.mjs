@@ -26,6 +26,10 @@ test('home renders research sections in order and keeps the animated identity', 
   assert.match(html, /Simulation for Architecture/);
   assert.match(html, /ECSS Framework/);
   assert.match(html, /cosmic-layer/);
+  const highlights = html.match(/<aside class="hero-updates"[\s\S]*?<\/aside>/)?.[0];
+  assert.ok(highlights, 'homepage includes highlights');
+  assert.doesNotMatch(highlights, /<a\b/);
+  assert.ok((highlights.match(/<li\b/g) ?? []).length <= 5);
   assert.match(html, /href="\/posts"/);
   assert.doesNotMatch(html, /Your first note/);
 });

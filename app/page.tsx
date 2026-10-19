@@ -4,6 +4,7 @@ import { featuredProjects } from "./data";
 import { RotatingPractice } from "./interactive";
 import recentProjects from "../content/recent-projects.json";
 import { publications } from "./publications/data";
+import { UpdateList } from "./content-components";
 
 export default function Home() {
   return <><SiteHeader /><main>
@@ -24,6 +25,7 @@ export default function Home() {
                 I’m exploring in <RotatingPractice />
               </p>
             </div>
+            <div className="hero-side">
             <div className="hero-orbit" aria-hidden="true">
               <span className="orbit orbit-one" />
               <span className="orbit orbit-two" />
@@ -31,6 +33,11 @@ export default function Home() {
               <span className="orbit-dot orbit-dot-two">✿</span>
               <span className="orbit-core">QH</span>
               <span className="orbit-note">One star in one person</span>
+            </div>
+            <aside className="hero-updates" aria-labelledby="hero-updates-title">
+              <h2 id="hero-updates-title">Recent Highlights</h2>
+              <UpdateList limit={5} />
+            </aside>
             </div>
           </div>
           <a className="circle-link hero-scroll-link" href="#recent-projects" aria-label="Scroll to recent projects">
@@ -59,7 +66,7 @@ export default function Home() {
     <section className="academic-section" id="recent-projects">
       <div className="academic-heading"><h2>Recent Projects</h2><span className="ongoing-label">Work in progress</span></div>
       <div className="ongoing-projects">{recentProjects.map((project) => <article key={project.title}>
-        <h3>{project.title}</h3><p>{project.description}</p>
+        <div><h3>{project.title}</h3><p>{project.description}</p></div>
       </article>)}</div>
     </section>
     <section className="academic-section"><div className="academic-heading"><h2>Selected Publications</h2><Link href="/publications">All publications ↗</Link></div>

@@ -4,7 +4,7 @@ import { formatDate, posts, updates } from "./content";
 export function UpdateList({ limit }: { limit?: number }) {
   return updates.length ? <ul className="update-list">{updates.slice(0, limit).map((item, index) => (
     <li key={`${item.date}-${index}`}><time dateTime={item.date}>{formatDate(item.date)}</time>
-      <p>{item.url ? <a href={item.url}>{item.text} <span aria-hidden="true">↗</span></a> : item.text}</p>
+      <p>{item.description}</p>
     </li>
   ))}</ul> : <p className="quiet-copy">New updates will appear here.</p>;
 }

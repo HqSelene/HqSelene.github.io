@@ -38,21 +38,24 @@ Entries appear in file order and describe work in progress, separately from publ
 
 ### Edit recent updates
 
-Edit `content/updates.json`. Each entry needs `date` (`YYYY-MM-DD`) and `text`;
-`url` is optional and accepts an internal path or an HTTP(S) link:
+Edit `content/updates.json`. Each entry has a `date` (`YYYY-MM-DD`) and
+`description`. Updates are plain text, with no links:
 
 ```json
 [
   {
-    "date": "2026-10-14",
-    "text": "A short update in your own words.",
-    "url": "/posts/my-note"
+    "date": "2026-10-17",
+    "description": "A short update in your own words."
   }
 ]
 ```
 
-Entries are sorted newest first automatically. Use `[]` for an empty list.
-Dates display as month/year; their full date remains in the page markup.
+Entries are sorted newest first automatically. The homepage shows up to three
+entries by default, four on screens at least 1100px wide and 800px tall, and
+five on screens at least 1440px wide and 950px tall. This keeps the animated
+landing page compact. Fewer available entries are shown without placeholders.
+The `/updates` archive shows every entry. Use `[]` for an empty list.
+Rebuild and deploy after editing to update the live website.
 
 ### Write a post
 

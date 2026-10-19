@@ -1,3 +1,4 @@
+import { PageHeading } from "../page-heading";
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../components";
 import { projects } from "../data";
@@ -13,15 +14,8 @@ export default function ProjectsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="inner-page projects-page">
-        <section className="page-intro">
-          <p className="eyebrow">Selected archive · 2021—2026</p>
-          <h1>Projects</h1>
-          <p className="page-intro-copy">
-            Research questions become interfaces, systems, environments, and
-            stories. This is a focused archive of that work.
-          </p>
-        </section>
+      <main className="inner-page projects-page index-page">
+        <PageHeading title="Projects" label="Selected archive · 2021—2026" description="Research questions become interfaces, systems, environments, and stories. This is a focused archive of that work." />
 
         <ProjectExplorer projects={projects} />
       </main>

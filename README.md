@@ -33,7 +33,7 @@ available as separate archives.
 
 ### Edit ongoing projects
 
-Edit `content/recent-projects.json`. Each entry has a `title` and `description`.
+Edit `content/recent-projects.json`. Each entry has a `title`, `description`, and optional `label`. The `label` is the small gray line above the project title; use it for a topic, affiliation, date, or short note. Set it to `""` to hide it.
 Entries appear in file order and describe work in progress, separately from publications.
 
 ### Edit recent updates

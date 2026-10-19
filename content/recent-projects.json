@@ -1,14 +1,17 @@
 [
   {
     "title": "LLM for Qualitative Coding",
-    "description": "Observing workflows that use large language models for qualitative coding, with a focus on how people work with LLMs during the coding process."
+    "description": "We investigate how researchers with different levels of experience use LLMs in qualitative analysis, exploring how AI shapes analytical reasoning, decision-making, and reliance through think-aloud studies..",
+    "label": "Leading Project · Collaboration with Stanford · Human–AI interaction · Qualitative research"
   },
   {
     "title": "Simulation for Architecture",
-    "description": "Developing a simulation tool for architectural work, exploring how simulation can support the design process."
+    "description": "We explore how AI-based stakeholder simulations can support human-centered architectural design. Through designer interviews and prototype development, we aim to inform future creativity support tools for architecture.",
+    "label": "Leading Project · Creativity support tools"
   },
   {
-    "title": "ECSS Framework",
-    "description": "An ongoing framework project, currently under development."
+    "title": "Experience-Centered Spatial Simulation (ECSS) Framework",
+    "description": "We introduce a generative-agent framework for simulating how different stakeholders perceive, interpret, and experience architectural spaces, exploring the potential of AI to model diverse human perspectives and dynamic spatial experiences.",
+    "label": "Leading Project · Generative agents · Agent-based simulation"
   }
 ]

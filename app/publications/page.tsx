@@ -1,3 +1,4 @@
+import { PageHeading } from "../page-heading";
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../components";
 
@@ -12,15 +13,8 @@ export default function PublicationsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="inner-page publications-page">
-        <section className="page-intro">
-          <p className="eyebrow">Research · HCI, AI & ML</p>
-          <h1>Publications</h1>
-          <p className="page-intro-copy">
-            Selected work on behavioral engagement, explainable product
-            search, and recommendation systems.
-          </p>
-        </section>
+      <main className="inner-page publications-page index-page">
+        <PageHeading title="Publications" label="Research · HCI, AI & ML" description="Selected work on behavioral engagement, explainable product search, and recommendation systems." />
 
         <section className="publication-list">
           {publications.map((publication, index) => (

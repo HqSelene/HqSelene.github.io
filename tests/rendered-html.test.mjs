@@ -24,7 +24,7 @@ test('home renders research sections in order and keeps the animated identity', 
   assert.match(html, /href="#recent-projects"/);
   assert.match(html, /LLM for Qualitative Coding/);
   assert.match(html, /Simulation for Architecture/);
-  assert.match(html, /ECSS Framework/);
+  assert.match(html, /Experience-Centered Spatial Simulation \(ECSS\) Framework/);
   assert.match(html, /cosmic-layer/);
   const highlights = html.match(/<aside class="hero-updates"[\s\S]*?<\/aside>/)?.[0];
   assert.ok(highlights, 'homepage includes highlights');

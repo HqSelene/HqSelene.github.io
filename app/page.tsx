@@ -66,7 +66,7 @@ export default function Home() {
     <section className="academic-section" id="recent-projects">
       <div className="academic-heading"><h2>Recent Projects</h2><span className="ongoing-label">Work in progress</span></div>
       <div className="ongoing-projects">{recentProjects.map((project) => <article key={project.title}>
-        <div><h3>{project.title}</h3><p>{project.description}</p></div>
+        <div>{project.label && <p className="recent-project-label">{project.label}</p>}<h3>{project.title}</h3><p>{project.description}</p></div>
       </article>)}</div>
     </section>
     <section className="academic-section"><div className="academic-heading"><h2>Selected Publications</h2><Link href="/publications">All publications ↗</Link></div>
@@ -76,16 +76,22 @@ export default function Home() {
           <a className="paper-link" href={publication.href} target="_blank" rel="noreferrer">{publication.href.endsWith(".pdf") ? "PDF" : "DOI"} ↗</a>
         </div></article>)}</div>
     </section>
-    <section className="academic-section" id="selected-work"><div className="academic-heading"><h2>Selected Projects</h2><Link href="/projects">All projects ↗</Link></div>
-      <div className="selected-project-list">{featuredProjects.slice(0, 3).map((project) => <article key={project.slug}>
-        <Link href={`/projects/${project.slug}`} className="selected-project-thumbnail" aria-label={project.title}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={project.cover} alt="" loading="lazy" />
+    <section className="academic-section project-showcase" id="selected-work">
+      <div className="academic-heading"><h2>Selected Projects</h2><Link href="/projects">All projects ↗</Link></div>
+      <div className="showcase-grid">{featuredProjects.slice(0, 3).map((project, index) => <article className="showcase-card" key={project.slug}>
+        <Link href={`/projects/${project.slug}`} className="showcase-link">
+          <div className="showcase-image">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={project.cover} alt="" loading="lazy" />
+            <span className="showcase-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+            <span className="showcase-open">Explore project <span aria-hidden="true">↗</span></span>
+          </div>
+          <div className="showcase-copy">
+            <p className="showcase-meta">{project.category} · {project.year}</p>
+            <h3>{project.title}<span aria-hidden="true">↗</span></h3>
+            <p className="showcase-summary">{project.summary}</p>
+          </div>
         </Link>
-        <div><p className="project-meta">{project.category} · {project.year}</p>
-          <h3><Link href={`/projects/${project.slug}`}>{project.title} <span aria-hidden="true">↗</span></Link></h3>
-          <p>{project.summary}</p>
-        </div>
       </article>)}</div>
     </section>
     </div>

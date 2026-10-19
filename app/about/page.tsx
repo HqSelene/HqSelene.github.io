@@ -1,3 +1,4 @@
+import { PageHeading } from "../page-heading";
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../components";
 
@@ -11,15 +12,8 @@ export default function AboutPage() {
   return (
     <>
       <SiteHeader />
-      <main className="inner-page about-page">
-        <section className="page-intro about-intro">
-          <p className="eyebrow">About · Qing He</p>
-          <h1>
-            I work between
-            <br />
-            disciplines <em>on purpose.</em>
-          </h1>
-        </section>
+      <main className="inner-page about-page index-page">
+        <PageHeading title="About" label="Qing He · Background & interests" description="I work between disciplines on purpose — connecting analytical systems with human experience." />
 
         <section className="about-lead">
           <div>

@@ -1,9 +1,8 @@
-import { parse as parseYaml } from "yaml";
-import { marked } from "marked";
+import { readFrontmatter, renderMarkdown, type ArticleHeading } from "./markdown";
 import updateData from "../content/updates.json";
 
 type Update = { date: string; description: string };
-export type Post = { slug: string; title: string; date: string; summary: string; html: string };
+export type Post = { slug: string; title: string; date: string; summary: string; cover?: string; html: string; headings: ArticleHeading[] };
 
 function validDate(value: unknown): value is string {
   return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) &&
@@ -23,18 +22,18 @@ const sources = import.meta.glob<string>("../content/posts/*.md", {
 });
 
 export const posts: Post[] = Object.entries(sources).flatMap(([path, source]) => {
-  const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
-  if (!frontmatter) throw new Error(`Missing YAML frontmatter in ${path}`);
-  const data = parseYaml(frontmatter[1]);
-  if (!data || typeof data !== "object") throw new Error(`Invalid YAML frontmatter in ${path}`);
-  const content = source.slice(frontmatter[0].length);
+  const { data, body } = readFrontmatter(source, path);
   if (data.draft === true) return [];
   const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : data.date;
   if (typeof data.title !== "string" || !data.title.trim() || !validDate(date) || typeof data.summary !== "string") {
     throw new Error(`Invalid post metadata in ${path}: title, date and summary are required.`);
   }
+  const cover = data.cover;
+  if (cover !== undefined && (typeof cover !== "string" || !/^(https?:\/\/|\/(?!\/))/.test(cover))) {
+    throw new Error(`${path}: invalid cover path`);
+  }
   return [{ slug: path.split("/").pop()!.replace(/\.md$/, ""), title: data.title, date,
-    summary: data.summary, html: marked.parse(content, { async: false }) }];
+    summary: data.summary, cover: cover as string | undefined, ...renderMarkdown(body) }];
 }).sort((a, b) => b.date.localeCompare(a.date));
 
 export function formatDate(date: string) {

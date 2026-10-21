@@ -15,9 +15,12 @@ export default function ProjectsPage() {
     <>
       <SiteHeader />
       <main className="inner-page projects-page index-page">
-        <PageHeading title="Projects" label="Selected archive · 2021—2026" description="Research questions become interfaces, systems, environments, and stories. This is a focused archive of that work." />
+        <PageHeading title="Projects" label={`Selected archive · ${projects.length ? Math.min(...projects.map(project => Number(project.year))) : ""}—${projects.length ? Math.max(...projects.map(project => Number(project.year))) : ""}`} description="Research questions become interfaces, systems, environments, and stories. This is a focused archive of that work." />
 
-        <ProjectExplorer projects={projects} />
+        <ProjectExplorer projects={projects.map(({ html, headings, gallery, ...summary }) => {
+          void html; void headings; void gallery;
+          return summary;
+        })} />
       </main>
       <SiteFooter />
     </>

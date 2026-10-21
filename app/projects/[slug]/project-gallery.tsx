@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 function imageLabel(path: string, index: number) {
   const filename = path.split("/").pop()?.replace(/\.[^.]+$/, "") ?? "";
@@ -13,10 +13,13 @@ function imageLabel(path: string, index: number) {
 export function ProjectGallery({
   title,
   images,
+  inline = false,
 }: {
   title: string;
   images: string[];
+  inline?: boolean;
 }) {
+  const headingId = useId();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
@@ -26,11 +29,22 @@ export function ProjectGallery({
   useEffect(() => {
     if (!isOpen) return;
 
+    const previousFocus = document.activeElement as HTMLElement | null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Tab") {
+        const dialog = closeButtonRef.current?.closest('[role="dialog"]');
+        const buttons = dialog?.querySelectorAll<HTMLButtonElement>("button");
+        if (buttons?.length) {
+          const first = buttons[0];
+          const last = buttons[buttons.length - 1];
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+          if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
+      }
       if (event.key === "Escape") {
         setActiveIndex(null);
       } else if (event.key === "ArrowRight" && uniqueImages.length > 1) {
@@ -49,6 +63,7 @@ export function ProjectGallery({
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, uniqueImages.length]);
@@ -78,11 +93,20 @@ export function ProjectGallery({
   }
 
   return (
-    <section className="project-gallery-section" aria-labelledby="gallery-title">
-      <div className="gallery-heading">
+    <section className={inline ? "inline-project-gallery" : "project-gallery-section"} aria-label={inline ? `${title} illustrations` : undefined} aria-labelledby={inline ? undefined : headingId}>
+      {inline ? <div className="article-figures">
+        {uniqueImages.map((image, index) => <figure key={image}>
+          <button type="button" onClick={() => setActiveIndex(index)} aria-label={`Enlarge ${imageLabel(image, index)}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={image} alt={`${title} — ${imageLabel(image, index)}`} loading="lazy" />
+            <span aria-hidden="true">↗</span>
+          </button>
+          <figcaption>{imageLabel(image, index)} <span>Click to enlarge</span></figcaption>
+        </figure>)}
+      </div> : <><div className="gallery-heading">
         <div>
           <p className="eyebrow">Project gallery</p>
-          <h2 id="gallery-title">A closer look.</h2>
+          <h2 id={headingId}>A closer look.</h2>
         </div>
 
         <div className="gallery-heading-meta">
@@ -146,6 +170,7 @@ export function ProjectGallery({
         </div>
       </div>
 
+      </>}
       {activeIndex !== null && (
         <div
           className="lightbox"

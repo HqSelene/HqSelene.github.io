@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Project } from "./data";
+import type { ProjectSummary } from "./project-types";
 import { ThemeToggle } from "./interactive";
 
 export function SiteHeader() {
@@ -12,9 +12,9 @@ export function SiteHeader() {
       <div className="header-actions">
         <nav className="desktop-nav" aria-label="Primary navigation">
           <Link href="/projects">Projects</Link>
-            <Link href="/posts">Posts</Link>
-          <Link href="/about">About</Link>
+          <Link href="/posts">Posts</Link>
           <Link href="/publications">Publications</Link>
+          <Link href="/about">About</Link>
           <a href="/Qing_He_CV.pdf" target="_blank" rel="noreferrer">CV</a>
         </nav>
 
@@ -25,8 +25,8 @@ export function SiteHeader() {
           <nav aria-label="Mobile navigation">
             <Link href="/projects">Projects</Link>
             <Link href="/posts">Posts</Link>
-            <Link href="/about">About</Link>
             <Link href="/publications">Publications</Link>
+            <Link href="/about">About</Link>
             <a href="/Qing_He_CV.pdf" target="_blank" rel="noreferrer">CV</a>
           </nav>
         </details>
@@ -40,7 +40,7 @@ export function ProjectCard({
   index,
   variant = "feature",
 }: {
-  project: Project;
+  project: ProjectSummary;
   index: number;
   variant?: "feature" | "compact";
 }) {

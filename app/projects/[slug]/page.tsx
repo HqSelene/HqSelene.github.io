@@ -1,144 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SiteFooter, SiteHeader } from "../../components";
 import { getProject, projects } from "../../data";
-import { ProjectGallery } from "./project-gallery";
+import { ArticleLayout } from "../../article-layout";
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export function generateStaticParams() { return projects.map(project => ({ slug: project.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) return {};
-  return {
-    title: `${project.title} — Qing He`,
-    description: project.summary,
-  };
+  return project ? { title: `${project.title} — Qing He`, description: project.summary } : {};
 }
 
-export default async function ProjectDetail({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
-
-  const currentIndex = projects.findIndex((item) => item.slug === project.slug);
-  const nextProject = projects[(currentIndex + 1) % projects.length];
-
-  return (
-    <>
-      <SiteHeader />
-      <main className="case-study">
-        <section className="case-hero">
-          <div className="case-hero-top">
-            <p className="eyebrow">
-              {project.category} · {project.year}
-            </p>
-            <Link href="/projects" className="text-link">
-              All projects <span>↗</span>
-            </Link>
-          </div>
-          <h1>{project.title}</h1>
-          <p className="case-intro">{project.intro}</p>
-          <div className="case-cover">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={project.cover} alt={`${project.title} project cover`} />
-          </div>
-        </section>
-
-        <section className="case-overview">
-          <p className="eyebrow">Overview</p>
-          <p className="case-summary">{project.summary}</p>
-          <dl>
-            <div>
-              <dt>Role</dt>
-              <dd>{project.role}</dd>
-            </div>
-            <div>
-              <dt>Methods & tools</dt>
-              <dd>{project.tools}</dd>
-            </div>
-            <div>
-              <dt>Focus</dt>
-              <dd>{project.tags.join(" · ")}</dd>
-            </div>
-          </dl>
-        </section>
-
-        {project.links && project.links.length > 0 && (
-          <section className="case-links" aria-label={`${project.title} links`}>
-            <p className="eyebrow">Visit project</p>
-            <div>
-              {project.links.map((link) => (
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={link.url}
-                >
-                  {link.label} <span aria-hidden="true">↗</span>
-                </a>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <div className="case-narrative">
-          {project.sections.map((section, index) => (
-            <section className="case-section" key={section.title}>
-              <p className="eyebrow">
-                {String(index + 1).padStart(2, "0")} · {section.eyebrow}
-              </p>
-              <div>
-                <h2>{section.title}</h2>
-                {section.body.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <ProjectGallery
-          title={project.title}
-          images={[project.cover, ...project.gallery]}
-        />
-
-        {project.archiveUrl && (
-          <section className="case-archive">
-            <p>
-              This focused case study preserves the project inside the new
-              portfolio. The original long-form page remains available as an
-              archive.
-            </p>
-            <a
-              className="text-link"
-              href={project.archiveUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open original case study <span>↗</span>
-            </a>
-          </section>
-        )}
-
-        <Link className="next-project" href={`/projects/${nextProject.slug}`}>
-          <span className="eyebrow">Next project</span>
-          <strong>{nextProject.title}</strong>
-          <span aria-hidden="true">↗</span>
-        </Link>
-      </main>
-      <SiteFooter />
-    </>
-  );
+  const nextProject = projects[(projects.indexOf(project) + 1) % projects.length];
+  return <ArticleLayout variant="project" title={project.title} label={`${project.category} · ${project.year}`}
+    intro={project.intro} summary={project.summary} cover={project.cover}
+    resources={[...project.links, ...(project.archiveUrl ? [{ label: "Original case study", url: project.archiveUrl }] : [])]}
+    html={project.html} headings={project.headings} backHref="/projects" backLabel="All Projects"
+    metadata={[{ label: "Type", value: project.category }, { label: "Year", value: project.year },
+      { label: "Role", value: project.role }, { label: "Tools & methods", value: project.tools },
+      ...(project.tags.length ? [{ label: "Focus", value: project.tags.join(" · ") }] : [])]}>
+    {nextProject && nextProject.slug !== project.slug && <Link className="story-next" href={`/projects/${nextProject.slug}`}><span className="eyebrow">Next project</span><strong>{nextProject.title}</strong><span aria-hidden="true">↗</span></Link>}
+  </ArticleLayout>;
 }

@@ -2,64 +2,58 @@
 
 import { useMemo, useState } from "react";
 import { ProjectCard } from "../components";
-import { projectCategories, type Project } from "../data";
+import { getProjectCategories, type ProjectSummary } from "../project-types";
 
-const categories = ["All projects", ...projectCategories] as const;
-
-type Category = (typeof categories)[number];
-
-export function ProjectExplorer({ projects }: { projects: Project[] }) {
-  const [activeCategory, setActiveCategory] =
-    useState<Category>("All projects");
+export function ProjectExplorer({ projects }: { projects: ProjectSummary[] }) {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const categories = useMemo(() => getProjectCategories(projects), [projects]);
+  const selected = categories.some(category => category.name === activeCategory) ? activeCategory : null;
+  const filters = [{ name: "All projects", value: null, count: projects.length },
+    ...categories.map(category => ({ ...category, value: category.name }))];
 
   const visibleProjects = useMemo(
     () =>
-      activeCategory === "All projects"
+      selected === null
         ? projects
-        : projects.filter((project) => project.category === activeCategory),
-    [activeCategory, projects],
+        : projects.filter((project) => project.category === selected),
+    [selected, projects],
   );
-
-  function countFor(category: Category) {
-    return category === "All projects"
-      ? projects.length
-      : projects.filter((project) => project.category === category).length;
-  }
 
   return (
     <section className="project-explorer" aria-label="Project browser">
       <div className="project-filter-bar">
         <div className="project-filter-label">
           <span aria-hidden="true">✦</span>
-          <p>Explore by practice</p>
+          <p>Explore</p>
         </div>
         <div className="project-filter-list" role="group" aria-label="Filter projects">
-          {categories.map((category) => (
+          {filters.map((category) => (
             <button
               type="button"
-              key={category}
+              key={category.value === null ? "all" : `category-${category.value}`}
               className={
-                activeCategory === category ? "filter-chip is-active" : "filter-chip"
+                selected === category.value ? "filter-chip is-active" : "filter-chip"
               }
-              aria-pressed={activeCategory === category}
-              onClick={() => setActiveCategory(category)}
+              aria-pressed={selected === category.value}
+              aria-controls="project-results"
+              onClick={() => setActiveCategory(category.value)}
             >
-              <span>{category}</span>
-              <strong>{String(countFor(category)).padStart(2, "0")}</strong>
+              <span>{category.name}</span>
+              <strong>{category.count}</strong>
             </button>
           ))}
         </div>
       </div>
 
       <div className="project-result-meta">
-        <p className="eyebrow">{activeCategory}</p>
+        <p className="eyebrow">{selected ?? "All projects"}</p>
         <p aria-live="polite">
           Showing {visibleProjects.length}{" "}
           {visibleProjects.length === 1 ? "project" : "projects"}
         </p>
       </div>
 
-      <div className="project-index-grid" key={activeCategory}>
+      <div className="project-index-grid" id="project-results" key={selected ?? "all"}>
         {visibleProjects.map((project) => (
           <ProjectCard
             key={project.slug}

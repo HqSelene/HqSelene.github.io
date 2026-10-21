@@ -9,7 +9,7 @@ research, and contact.
 
 - `/` — personal introduction and selected work
 - `/projects` — complete project index
-- `/projects/[slug]` — focused case studies for eight retained projects
+- `/projects/[slug]` — Markdown-based stories for the retained projects
 - `/about` — background, education, research, and contact
 - `/publications` — selected HCI, AI, and ML publications
 
@@ -74,3 +74,14 @@ Content is bundled at build time, including on Workers (no runtime filesystem).
 Rebuild and deploy after edits for changes to appear on the live website.
 Editing a file on GitHub updates the live site only if automatic deployment
 has been configured for that repository.
+
+### Project and post Markdown files
+
+Every project now lives in `content/projects/<slug>.md`; posts live in
+`content/posts/<slug>.md`. The filename defines the URL. These are the source
+of truth for page content, project cards, and project listings. No changes to
+`app/data.ts` are needed to add or edit a project.
+
+See [content/README.md](content/README.md) for an editing guide, required metadata,
+image placement, drafts, and homepage selection. Existing project content and
+images were migrated to these files. Rebuild/deploy to update the live website.

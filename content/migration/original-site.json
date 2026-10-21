@@ -1,0 +1,739 @@
+{
+  "pages": [
+    {
+      "route": "/projects/fitness-tracker",
+      "source": "https://hqselene.github.io/post/e6c57899/",
+      "textBlocks": [
+        "Overview",
+        "FitnessTracker is an experimental web platform that explores how AI-generated self-modeling can support behavior change in fitness contexts. The system allows users to select an ideal body shape, generates a personalized future-self video, and integrates it into a lightweight tracking and reflection interface.",
+        "It served as an early prototype for investigating how personalized AI representations influence motivation, perception, and adherence over time. The work informed later research directions on engagement decay and personalization."
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/fitnesstracker/1.PNG",
+          "local": "/media/fitness-tracker/cover.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/fitnesstracker/2.PNG",
+          "local": "/media/fitness-tracker/interface.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/fitnesstracker/3.PNG",
+          "local": "/media/fitness-tracker/reflection.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/fitnesstracker/4.PNG",
+          "local": "/media/fitness-tracker/progress.png"
+        }
+      ]
+    },
+    {
+      "route": "/projects/sounds-up",
+      "source": "https://hqselene.github.io/post/f7bfe8b6/",
+      "textBlocks": [
+        "SoundsUp",
+        "Let every live rhythm echo once more in the heartbeat of memory. #AdventureX2025",
+        "About the Project",
+        "Product Vision",
+        "SoundsUp is a new memory experience product that combines AI with portable hardware.",
+        "It works through a mobile app (and ideally a button-sized AI hardware device that can be attached magnetically or worn as a badge). The device automatically captures live sound, rhythm, and atmosphere in concerts, orchestras, livehouses, and other sound-centered entertainment settings.",
+        "AI analyzes the captured audio, identifies emotional expressions across different segments, and extracts highlight moments. It then generates a digital ticket stub that integrates event information, audio fragments, and emotional data—allowing each live performance to resonate again in a new dimension of time and memory.",
+        "Product Story",
+        "A solitary traveler walks across silent dunes. Then, beneath the night sky, a melody rises— the brightest sound in his memory.",
+        "From that moment on, every sound becomes a “Resonant Moment.”",
+        "Product Features",
+        "Automatically captures live sound, rhythm, and atmosphere",
+        "AI-powered analysis of emotional expression types and highlight segments",
+        "Generates digital ticket stubs integrating event details, audio, and emotional data",
+        "Provides emotional analysis reports to help users better understand their own emotional responses"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/soundsup/mainpage.png",
+          "local": "/media/sounds-up/home.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/soundsup/ticketlist.png",
+          "local": "/media/sounds-up/ticket-list.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/soundsup/digitalticketscollection.png",
+          "local": "/media/sounds-up/tickets.png"
+        }
+      ]
+    },
+    {
+      "route": "/projects/emotion-clock",
+      "source": "https://hqselene.github.io/post/62474477/",
+      "textBlocks": [
+        "Overview",
+        "Humans created time as a shared abstraction, a collective agreement that allows society to function. The clock materializes this invisible consensus, making an intangible concept measurable and visible.",
+        "In this project, I explore a similar idea: What if knowledge and interpretation within an exhibition space could also become visible through consensus?",
+        "I designed an interactive system where visitors collectively construct a shared understanding of exhibits. The panel functions as a “clock”, not for time, but for accumulated perception.",
+        "System Design",
+        "The project consists of:",
+        "A mobile application interface for visitor input",
+        "A physical interactive panel (custom hardware) installed in the exhibition space",
+        "A real-time aggregation system that translates individual responses into collective visualization",
+        "Visitors interact with the exhibit through the app, submitting interpretations, emotional reactions, or evaluations. These inputs are processed and dynamically reflected on the physical panel.",
+        "Over time, the panel becomes a living visualization of consensus showing an evolving index of collective perception.",
+        "“Clock” System Design",
+        "Emotion Clock",
+        "This is the visualization of a similarity matrix, which functioned as a clock to show visitors’ attitudes toward other exhibits. It involves the mutual similarity of $x$ interactive visitors. The latest interactive visitors are set to default and displayed to the visitor. Since the current interactive visitor is the latest visitor to interact with the panel, column $n$ and row $n$ show similarities between this visitor and former $x$ visitors.",
+        "Clock Installation",
+        "This panel installation is used to show the similarity matrix.",
+        "Data Workflow",
+        "This process depicts a detailed process related to data, from data collection to data computation. Expressly, the data storage and computation environment is set on the cloud. The data computation is based on Python, with different libraries in different tasks.",
+        "The emotion analysis is based on the color wheel theory. Robert Plutchik, a psychologist, proposed the psychoevolutionary classification approach for general emotional responses and created a wheel of emotions to illustrate different emotions.",
+        "App Design",
+        "Experience Map",
+        "More Than Museums",
+        "The pattern proposed in this project above is not only suitable for different types of museums, such as art museums, history museums, science museums, etc., but also can be adapted to other places where knowledge sharing can take place, for instance, relics, building, school, or even the supermarkets."
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/museum/clock.png",
+          "local": "/media/emotion-clock/clock.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum/device-3.png",
+          "local": "/media/emotion-clock/device-03.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum/data_workflow.png",
+          "local": "/media/emotion-clock/data-workflow.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum/color_wheel.png",
+          "local": "/media/emotion-clock/color-wheel.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum/device-1.png",
+          "local": "/media/emotion-clock/device.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum/device-2.png",
+          "local": "/media/emotion-clock/device-02.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum/experience_map.png",
+          "local": "/media/emotion-clock/journey.png"
+        }
+      ]
+    },
+    {
+      "route": "/projects/leap-of-faith",
+      "source": "https://hqselene.github.io/post/f8ad34ee/",
+      "textBlocks": [
+        "Story",
+        "After fifty years, with the widespread adoption of the Internet, the virtual world and the real world began to run in parallel. However, this development also brought side effects. People who had been immersed in the online world for long periods started exhibiting symptoms of a condition called Reality-Virtual Confusion Irritability Syndrome (RVCIS). Those afflicted with RVCIS became unable to distinguish between virtual and real life. During episodes, they lost the ability to communicate normally with others in reality. Even outside of episodes, they became increasingly radical, leading to frequent cases of violence, self-harm, and suicide. Dissatisfied with the restrictions of the real world compared to the limitless possibilities of the virtual world, many of these individuals began openly opposing the government and legal system. It took only a few years for this condition to spread from isolated cases to a large-scale outbreak, throwing society into turmoil.",
+        "During this period, a New Liberty Party emerged. The party’s leader was the first documented case of RVCIS. A publicly exposed the government’s persecution of him and declared himself a “New Human,” arguing that RVCIS was not a disorder but rather an essential step in human evolution—from the physical world into the virtual world. He claimed that New Humans possessed superior healing abilities and greater tolerance for virtual reality. His team even developed a panel-based communication system designed specifically for New Humans.",
+        "The New Liberty Party quickly gained widespread support. Eventually, the old government collapsed, and a new government was established under the party’s rule. To facilitate human “evolution,” the New Liberty Party decided to rebuild the world to accommodate the needs of New Humans. As a result, the New World gradually expanded outward from the New Liberty Party’s center. To accelerate the transformation, they developed machines that destroyed remnants of the Old World and rebuilt them. One of the machine they invented called “NEW AGE”, which was deployed at newly reconstructed sites.",
+        "At each reconstruction point, former citizens of the Old World were subjected to a “training” process. Only those who successfully evolved into New Humans were allowed to enter and live in the New World. Those who failed or refused to comply were exiled.",
+        "However, among the exiled and those who opposed the New Liberty Party, a resistance organization called the “Guardians” (THE GUARD) was formed. Their mission was to sabotage the New World and resist its expansion, striving to reclaim the remnants of the Old World.",
+        "在经过了五十年之后，随着互联网的广泛应用，虚拟世界和现实世界并行，但同时也出现了副作用，长期使用网络的人类都出现了一种名叫现实虚拟混淆暴躁症，患有该病的患者无法识别虚拟和现实生活，发病时会丧失和人们在现实生活中正常交流的能力，而即使没发病，也会变得更加偏激，伤人、自杀等屡见不鲜，同时这些人不满于现实相比于虚拟中更多的限制，开始公然反对现在的政府、法律，整个社会从开始出现到大规模发病只用了短短几年，社会动荡不安。在这个过程中，一支声称自己是新自由党的党派出现，其党派的主席为第一例现实虚拟混淆暴躁症的患者A，A揭露了国家对他的迫害，并以新人类自居，表示现实虚拟混淆暴躁症并非病症而是人类从现实社会过渡到虚拟现实社会中必经的进化过程，新人类有更强的治愈能力和对于虚拟现实的承受力，其团队还研制出了用于新人类的交流方式——面板交流。",
+        "很快新自由党得到了越来越多的人支持，最终旧政府倒下，新政府成立，由新自由党管理。为了顺应人类的“进化”，新自由党决定重建所有空间，以供新人类生活。因此，新世界逐渐由新自由党的中心向四周扩散，他们发明机器去摧毁旧世界的机器、重建新世界，同时还发明了一个机器叫做“NEW AGE”。每到一个新的重建点时，当地的本旧世界公民会在此中被“训练”，只有成为新人类才允许进入新世界生存，否则会被放逐。而这些被放逐的和不满新自由党的旧人类则成立一个叫做保卫者协会的组织“THE GUARD”，以破坏新世界的企图。"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/Liberty/liberty.jpg",
+          "local": "/media/leap-of-faith/story-00.jpg"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Liberty/liberty2.jpg",
+          "local": "/media/leap-of-faith/story-01.jpg"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Liberty/liberty3.jpg",
+          "local": "/media/leap-of-faith/story-02.jpg"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Liberty/liberty4.jpg",
+          "local": "/media/leap-of-faith/story-03.jpg"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Liberty/liberty5.jpg",
+          "local": "/media/leap-of-faith/story-05.jpg"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Liberty/liberty6.jpg",
+          "local": "/media/leap-of-faith/story-06.jpg"
+        }
+      ]
+    },
+    {
+      "route": "/projects/dont-touch",
+      "source": "https://hqselene.github.io/post/a436b1e0/",
+      "textBlocks": [
+        "Overview",
+        "In modern society, museums often take on a role of public education that appears open but is, in reality, restricted. Through their structure and methods of display, museums reinforce barriers to knowledge, embedding an intangible sense of authority that is untouchable, which reflects the power relations of Foucault’s “disciplinary society”. By limiting viewer interaction with exhibits, traditional museums establish a mechanism of control, making art inaccessible.",
+        "This project questions the “untouchable” nature of traditional museums by constructing walking stairs with green walls wrapping on exteriors, where viewers can engage actively. It explors how art can establish a direct dialogue with audiences instead of only authoritative interpretation.",
+        "As an open, free art space, the ICA presents possibilities of domestic, open art for public. Through a reconfiguration of museum space, the viewer is no longer a passive observer but becomes an active perceiver. This approach is not only a critique of museum institutions but also an exploration of a more equitable, interactive relationship between art and the public.",
+        "Line Drawings",
+        "Floor Plan",
+        "Section",
+        "Rendering Pictures",
+        "Model Pictures"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/501/floor-plan.png",
+          "local": "/media/dont-touch/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/section.png",
+          "local": "/media/dont-touch/section.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/New_exterior.png",
+          "local": "/media/dont-touch/exterior.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/New_interior.png",
+          "local": "/media/dont-touch/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/model.png",
+          "local": "/media/dont-touch/original-05.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/model01.png",
+          "local": "/media/dont-touch/model-01.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/model03.JPG",
+          "local": "/media/dont-touch/model.jpg"
+        },
+        {
+          "source": "https://hqselene.github.io/images/501/model04.JPG",
+          "local": "/media/dont-touch/model-04.jpg"
+        }
+      ]
+    },
+    {
+      "route": "/projects/emotion-space",
+      "source": "https://hqselene.github.io/post/ace1c5d2/",
+      "textBlocks": [
+        "Overview",
+        "\"My university is similar to other Chinese colleges, which lack enough facilities to provide private spaces for their students. When you feel depressed, sad, or breakdown, there is no separate room for you to deal with your negative emotions. You can hear others crying and shouting from the corridors, which makes everyone feel embarrassed. This situation can also happen to people living in large cities today. Life is fast-paced, and pressure exists everywhere. However, these people don't have time or space to mitigate, and the negative emotions constantly aggregate.\"",
+        "This is a freelance activity. This project is about emotion and based on my observation towards things happened around me as well as my own experiences. This project includes two types of presentation, one is a unity game called Contend For Room , another is a performance Emotional “Monster” .",
+        "Background",
+        "Nowadays, we spend most of our time in public spaces, such as offices, schools, subway stations, and even the places many people live in are shared apartments.",
+        "The long exposure time in public places, makes us feel squeezed as we don’t have a private space to deal with our emotions, especially negative emotions. Therefore, suppression becomes the main method for emotion regulation. However, according to the research, suppression can lead to some bad consequences, such as a decrease in memory ability, an increase in blood pressure, and worse mood repair.",
+        "If suppression is not a good idea to deal with our negative emotions, what could be? We can see that one of the prominent problems is the lack of private space. So in this project, I propose a theory to construct an emotional space, which can” extend our private space, so that we will not feel squeezed and help us to deal with our emotions.",
+        "Core Theory",
+        "Emotion Assemblage",
+        "It is an aggregation of any thing, for example, a piece of music, a dog, the sky you see, that can be accepted by yourself under current emotional circumstances.",
+        "Emotion Space",
+        "Emotion space is a cognitive form and can be seen as an extension of private space, as opposed to physical form. It is composed of emotion assemblages.",
+        "Emotion Space Construction",
+        "The construction process of emotional space is an active process. At first, treat an individual as a primitive emotional assemblage. Then the individual looks for each surrounding element and judg- es whether he expects it to appear around him under this circumstance. The accepted elements together with the primitive emotional assemblage combine into a larger emotional assemblage.",
+        "At normal state, our internal body can exchange emotion with public space, which can make our emotion achieve a dynamic balance. We can easily receive and respond to emotions that surroundings bring to us. When people in negative emotion, the exchange process can not work well. The internal bad emotion is dashing on body, while the emotions outside also influence people and make them feel uncomfortable. They requests more private space. After people succeed in constructing an emotion space, their private spaces extend.",
+        "Game Design",
+        "The game is developed on Unity and illustrates a scene to show when people need and how to create an emotion space.",
+        "The more information about this project can be found on github . The game can be played on website .",
+        "Performance",
+        "This section shows the theory in depth through a wearable installation and performances, using our bodies to connect our emotional spaces physically. Hence, this part develops my affordances to identify other emotional assemblages and the process has been documented through a film .",
+        "Materials and Design Process",
+        "Design Status",
+        "Negative and positive states are indicated by the color of the tube material wrapped around the clothing.",
+        "Wearable Installation Photos"
+      ],
+      "links": [
+        {
+          "label": "Contend For Room",
+          "url": "https://hqselene.github.io/EmotionSpaceCreation/"
+        },
+        {
+          "label": "Emotional “Monster”",
+          "url": "https://www.youtube.com/watch?v=fM26rF-7J4s"
+        },
+        {
+          "label": "github",
+          "url": "https://github.com/HqSelene/EmotionSpaceCreation.git"
+        },
+        {
+          "label": "website",
+          "url": "https://hqselene.github.io/EmotionSpaceCreation/"
+        },
+        {
+          "label": "film",
+          "url": "https://www.youtube.com/watch?v=fM26rF-7J4s"
+        }
+      ],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/process.png",
+          "local": "/media/emotion-space/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/game.png",
+          "local": "/media/emotion-space/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/game-2.png",
+          "local": "/media/emotion-space/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/material.png",
+          "local": "/media/emotion-space/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/design_process.png",
+          "local": "/media/emotion-space/original-05.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/status.png",
+          "local": "/media/emotion-space/original-06.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/film-1.png",
+          "local": "/media/emotion-space/original-07.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/ace1c5d2/film-2.png",
+          "local": "/media/emotion-space/original-08.webp"
+        }
+      ]
+    },
+    {
+      "route": "/projects/musical-influence",
+      "source": "https://hqselene.github.io/post/ee35e70c/",
+      "textBlocks": [
+        "Finalist Award · 2021 MCM/ICM Mathematical Contest in Modeling Team Member · Qing He · Ruiqing Hu · Liang Yin Tools Python · NetworkX · scikit-learn · Pandas Full paper you can find here .",
+        "Overview",
+        "Who shapes the sound of an era? This project builds a mathematical framework to trace how influence travels through 5600+ musicians, using modified PageRank, entropy-weighted similarity, and dynamic graph analysis.",
+        "Quantifying the Unmeasurable",
+        "Most accounts of musical evolution rely on narrative: critics, anecdote, history books. This project takes a different approach by treating the relationships between musicians as a directed graph, where every edge encodes who influenced whom, and every node carries an 11-dimensional acoustic feature vector.",
+        "The central question: can we move beyond subjective claims and rigorously model how influence propagates, which genres are truly distinct, and when musical revolutions actually occurred?",
+        "Four Interlocking Models",
+        "Rather than a single algorithm, this project chains four models together - each feeding into the next.",
+        "Modified PageRank",
+        "Standard PageRank adapted for music influence, with damping factor q = 0.3 (vs. the web’s 0.85). The key insight: musical followers becoming influencers themselves is far less probable than web browsing chains. A lower damping factor reflects that creative influence dissipates more quickly than hyperlink traversal.",
+        "Entropy-Weighted Similarity",
+        "Feature weights derived via Information Entropy (EWM) across 11 acoustic dimensions — danceability, energy, valence, tempo, loudness, acousticness, instrumentalness, liveness, speechiness, mode, and key. The principle: higher entropy in a feature → higher discriminative power → higher weight. Similarity is then the inverse of the Weighted Euclidean Distance between two artist vectors.",
+        "Hierarchical Clustering + PCA",
+        "Complete-linkage hierarchical clustering groups all 20 genres into 4 macro-clusters. PCA reduces the feature space to 3D for visualization. The surprising finding: instrumentalness and speechiness are the primary axes separating genres — not the more intuitive energy or tempo.",
+        "Dynamic PageRank",
+        "Extends the base model by weighting each influence edge with two dynamic indices: θ_time (temporal distance between artists’ active periods) and θ_genre (cross-genre musical distance). Artists who transcend both era and genre rank higher as “dynamic influencers”, a more nuanced measure than raw follower count.",
+        "Key Findings",
+        "After running the full model pipeline across 5,603 musicians and ~42,000 influence edges, five results stood out.",
+        "Influence follows a power law. A handful of artists, such as The Beatles, Bob Dylan, Hank Williams, account for a disproportionate share of total network influence, consistent with scale-free network behavior. The top 20 artists by PageRank collectively shape the trajectories of thousands of followers.",
+        "Influence follows a power law. A handful of artists, such as The Beatles, Bob Dylan, Hank Williams, account for a disproportionate share of total network influence, consistent with scale-free network behavior. The top 20 artists by PageRank collectively shape the trajectories of thousands of followers.",
+        "Mainstream genres self-reinforce; niche genres borrow. Jazz, Pop/Rock, and Country receive 70%+ of their influence from within their own genre. Electronic, New Age, and Avant-Garde draw less than 40% internally, actively absorbing from adjacent styles. Established genres have stable identities; emerging ones are still searching for one.",
+        "Mainstream genres self-reinforce; niche genres borrow. Jazz, Pop/Rock, and Country receive 70%+ of their influence from within their own genre. Electronic, New Age, and Avant-Garde draw less than 40% internally, actively absorbing from adjacent styles. Established genres have stable identities; emerging ones are still searching for one.",
+        "Three musical revolutions, verified quantitatively. Similarity-over-time analysis pinpoints the 1950s Rock & Roll emergence, the 1960s British Invasion, and 1980s contemporary R&B as moments of maximal stylistic discontinuity. These align precisely with known historical events, which means that the model independently recovered what music historians already knew.",
+        "Three musical revolutions, verified quantitatively. Similarity-over-time analysis pinpoints the 1950s Rock & Roll emergence, the 1960s British Invasion, and 1980s contemporary R&B as moments of maximal stylistic discontinuity. These align precisely with known historical events, which means that the model independently recovered what music historians already knew.",
+        "Influencers don’t always convert followers. Only 52.4% of followers show increased musical similarity to their influencer’s style over time. The other 47.6% diverge. Imitation and divergence coexist as creative strategies, and the data can’t fully distinguish which is which.",
+        "Influencers don’t always convert followers. Only 52.4% of followers show increased musical similarity to their influencer’s style over time. The other 47.6% diverge. Imitation and divergence coexist as creative strategies, and the data can’t fully distinguish which is which.",
+        "Genre identity lives in two dimensions. Of all 11 acoustic features, speechiness and instrumentalness show the largest gap between genre clusters. Energy and tempo, which most people intuitively associate with genre, are comparatively weak discriminators.",
+        "Genre identity lives in two dimensions. Of all 11 acoustic features, speechiness and instrumentalness show the largest gap between genre clusters. Energy and tempo, which most people intuitively associate with genre, are comparatively weak discriminators."
+      ],
+      "links": [
+        {
+          "label": "here",
+          "url": "https://github.com/HqSelene/2021MCM-ICM/blob/main/The%20research%20of%20musical%20influence%20based%20on%20the%20characteristic%20of%20a%20network.pdf"
+        }
+      ],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/musicinfluence/graph.png",
+          "local": "/media/musical-influence/cover.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/musicinfluence/rank_pr_value.png",
+          "local": "/media/musical-influence/ranking.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/musicinfluence/ifsp.png",
+          "local": "/media/musical-influence/influence.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/musicinfluence/event.png",
+          "local": "/media/musical-influence/event.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/musicinfluence/artist_time.png",
+          "local": "/media/musical-influence/timeline.png"
+        }
+      ]
+    },
+    {
+      "route": "/projects/aid-sync",
+      "source": "https://hqselene.github.io/post/9952378d/",
+      "textBlocks": [
+        "Overview",
+        "The Wuhan lockdown and the Henan floods were significant public crises that caused severe damage in recent years. These events highlighted the potential of pan-media as an innovative response mechanism for emergencies, integrating ordinary citizens into the traditionally government-led rescue system. By forming a “mutual aid ecosystem”, pan-media facilitates real-time feedback on rescue information and online rescue efforts alongside official on-site operations.",
+        "However, the spontaneous “mutual aid ecosystem” formed through social media has limitations, such as redundant data and difficulties in extracting valuable information.",
+        "This project aims to develop a data platform model that collects, processes, and visualizes public emergency information from social media, providing a structured prototype system for more effective crisis response.",
+        "Project Design Process",
+        "Henan Rainstorm Data Analysis",
+        "In order to study the phenomena we observed, verify the hypotheses we proposed, and design a suitable data platform model, we obtained the Weibo data from July 20, 2021 to July 22 2021 by calling the API, and extracted useful information, and analyzed the obtained data after cleaning.",
+        "The formation process of the “mutual aid ecosystem” on social media : In the entire ecosystem, we can see that in addition to help-seekers, different roles such as information release or- ganizers, information classification volunteers, and network res- cuers have also been formed, with corresponding functions and tasks. This division of labor plays a significant impact in mutual aid.",
+        "Posts forward distribution : The overall distribution showed a long-tail distribution which indicates the exist of Pareto principle. A small amount of informa- tion receives a large amount of exposure and it lead to the decrease the efficiency of the rescue and wastes a lot of time and human resources.",
+        "Data Processing System Design",
+        "Data Collection : In this project, the data mainly comes from social media platforms. In theory, to ensure the timeliness of information, we need to update data in real-time, but updating data in real-time consumes a large amount of computing resources and storage resources. Many platforms also limit the frequency of crawling data. Therefore, to balance data timeliness and platform overhead, we adopt a batch processing mode to perform batch calculations on data.",
+        "Data Extraction : This function is mainly used to clean, integrate and extract information from the original data. After cleaning, the data must be integrated and struc  tured information extracted to facilitate subsequent.",
+        "Data Classifications : Data classification includes a text classifier, which is used to classify roughly extracted text information into three categories: help-seeking posts, help-providing posts, and others.",
+        "Data Visualization : This part visualizes the obtained data to present the data more intuitively and conveniently. In public emergencies, the most important informationnincludes geographical location information, contact information, and information content. Based on the above demands, we divide the visualization into geographical location and summary information. The former one is presented through a map, while latter is shown through a list and has filtering and retrieval functions",
+        "Demo"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/aidsync/process.png",
+          "local": "/media/aid-sync/process.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/aidsync/mutual_aid_sytem.png",
+          "local": "/media/aid-sync/mutual-aid.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/aidsync/posts_forward_distribution.png",
+          "local": "/media/aid-sync/distribution.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/aidsync/system.png",
+          "local": "/media/aid-sync/system.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/aidsync/demo.png",
+          "local": "/media/aid-sync/demo.png"
+        },
+        {
+          "source": "https://hqselene.github.io/images/aidsync/demo2.png",
+          "local": "/media/aid-sync/demo-02.png"
+        }
+      ]
+    },
+    {
+      "route": "/posts/can-ai-understand-physical-world",
+      "source": "https://hqselene.github.io/post/34e3046e/",
+      "textBlocks": [
+        "昨天参加了高瓴举办的一个AI思辨会，辩题有两个主题，一是Sora能够理解物理世界吗？另一个是，data driven能否实现通用人工智能？我觉得很有意思，因此来记录我的一些看法。",
+        "Sora能够理解物理世界吗？",
+        "正方观点的认为可以理解，主要论点有：",
+        "Sora具有一致和连贯性，能够建模出物理世界，那么它是能够理解物理世界的；",
+        "其实首先定义什么是理解，",
+        "在此，我认为有几个问题需要解决？"
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "route": "/posts/leeza-soho",
+      "source": "https://hqselene.github.io/post/df3f6a4f/",
+      "textBlocks": [
+        "丽泽SOHO（Leeza SOHO）于2019年11月19日落成开放，是Zaha Hadid继银河SOHO和望京SOHO后，为SOHO中国设计的第三座大楼。"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/1.png",
+          "local": "/media/posts/leeza-soho/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/2.png",
+          "local": "/media/posts/leeza-soho/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/3.png",
+          "local": "/media/posts/leeza-soho/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/4.png",
+          "local": "/media/posts/leeza-soho/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/5.png",
+          "local": "/media/posts/leeza-soho/original-05.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/6.png",
+          "local": "/media/posts/leeza-soho/original-06.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/7.png",
+          "local": "/media/posts/leeza-soho/original-07.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Leeza-SOHO/8.png",
+          "local": "/media/posts/leeza-soho/original-08.webp"
+        }
+      ]
+    },
+    {
+      "route": "/posts/ghost-laughing-stone",
+      "source": "https://hqselene.github.io/post/c18c59ba/",
+      "textBlocks": [
+        "画廊 Gallery",
+        "记录 Record",
+        "2024年1月21日，我和一位朋友去看了鬼笑石，在一个非常非常寒冷的冬天。将车停在停车场，我刚下来，就发现了满天的繁星，心中一颤，这是北京城内所没有的景观。",
+        "一位热心的大爷走了过来，提醒我们车方向摆错了，由于当时已经凌晨1点多，他非常有耐心且面带笑容地和我们沟通着，指导我们停在正确的位置上，让我更觉得亲切友好。直到停好车，他将二维码递给我们，“支付一下停车费哈”，我和朋友相视一笑支付了。他后来跟我说，之前来了这么多次，从来没有遇到过需要付停车费的情况，不知道真相到底是什么，也算是辛苦大爷在这么寒冷的冬天还要熬到这么晚了。",
+        "要到鬼笑石，还需要走几十分钟，我们一路“披星戴月”，边走边聊。路上没有人，只有我们两个和周围的山、树、铁塔、月光和星空，以及北京城的夜色。",
+        "开始的时候，我丝毫没有感受到寒意，可能是树遮挡住了风吧。但走到鬼笑石的时候，风突然大了起来，一块巨大的石头屹立在山头，风呼呼地吹，发出凄厉的声音，像鬼笑的声音一般，这便是鬼笑石的由来。我们临时起意，没有准备厚厚的装备，连围巾都没有带，就只能靠羽绒服的帽子遮挡。我的嘴唇也因为持续暴露在空气中，变得僵硬，和朋友说话时也很难发出正常的声音，仿佛躯体被封印。",
+        "不过，北京城的夜色真的太美了。身处于北京的时候，总是嘲笑它的规划，然而站在鬼笑石俯瞰北京城，你依旧会被城市中灯光所组成的方块所震撼。",
+        "下山的时候，我们遇到了两个刚来的女生，她们好像喝了点酒，特别开心、一直笑着，祝我们拥有一个超级有意思的夜晚，这个遇见也为我这个夜晚添加了更多意义。"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-1.png",
+          "local": "/media/posts/ghost-laughing-stone/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-2.png",
+          "local": "/media/posts/ghost-laughing-stone/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-3.png",
+          "local": "/media/posts/ghost-laughing-stone/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/Ghost-Laughing-Stone/Ghost-Laughing-Stone-4.png",
+          "local": "/media/posts/ghost-laughing-stone/original-04.webp"
+        }
+      ]
+    },
+    {
+      "route": "/posts/retrieval-augmentation-1",
+      "source": "https://hqselene.github.io/post/626bd91e/",
+      "textBlocks": [
+        "FLARE",
+        "forward-looking active retrieval augmented generation",
+        "将最初的 $x$ 作为输入，生成下一个句子，两者结合作为query输入到retriever中进行，然后迭代几次最终生成答案。",
+        "Overall Model",
+        "FLARE_instruction",
+        "将与搜索相关的指令和示例作为技能1放在开头，然后将下游任务的指令和样例作为技能2。给定一个测试用例，我们要求LM在执行任务时结合技能1和2来生成搜索查询。",
+        "Skill 1. An instruction to guide LMs to generate search queries.  Several search-related exemplars.Skill 2. An instruction to guide LMs to perform a specific downstream task (e.g., multihop QA).  Several task-related exemplars.An instruction to guide LMs to combine skills 1 and 2 for the test case.  The input of the test case.",
+        "Direct FLARE",
+        "通过判断LM生成的句子是否confident，如果不是，则需要对query进行处理",
+        "Masked sentences as implicit queries.",
+        "Generated questions as explicit queries. (Self ask model)",
+        "Rewrite-Retrieve-Read",
+        "通过rewrite使得问题更加清晰，小模型是基于一个假的数据集并利用强化学习训练得到的。",
+        "RecMind",
+        "Planning",
+        "帮助LLM将任务分解为更小、可管理的子目标，以有效地处理复杂任务。planning（x）是一组prompt，将问题$x$分解为一系列子任务，这些子任务由thought $h$、action $a$和observation $o$组成。",
+        "Self-Inspiring (SI) CoT和ToT都只考虑了一种可能性，SI则是基于之前的所有路径另外寻找一个reasoning的可能性。",
+        "Memory",
+        "Personalized Memory：\n    individualized user information\nWorld Knowledge:\n    item metadata information\n    real-time information that can be accessed through Web search tool",
+        "AgentCF",
+        "Item和user分别作为agent进行交互，相互更新对方的profile和interest。"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/post/626bd91e/Flare-1.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/626bd91e/Flare_instruct.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/626bd91e/query_formulation.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/626bd91e/RRR.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/626bd91e/RecMind.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-05.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/626bd91e/SI.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-06.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/banner/AgentCF.png",
+          "local": "/media/posts/retrieval-augmentation-1/original-07.webp"
+        }
+      ]
+    },
+    {
+      "route": "/posts/blue",
+      "source": "https://hqselene.github.io/post/3e04658a/",
+      "textBlocks": [
+        "北京 Beijing",
+        "北京的蓝天是我特别喜欢的，他是纯净的。我还记得我对于北京的最深刻的印象是我来北京看我哥的时候，那时候我们住在五棵松附近一个非常便宜的小旅馆，旁边有一家庆丰包子铺。走在往地铁站的路上，会经过一个很大很大的高架桥，墙上爬满了爬山虎，是绿色的，与之相对应的是北京灰蒙蒙的天。那篇绿色，使我从此忘不了北京。",
+        "蓝天 Blue Sky",
+        "进入大学之后，我突然发现，北京不同于以往充满雾霾的想象，天空异常的蓝，而画布上的白云又是那么的活泼生动，有时候是沉甸甸的，不知道什么时候会压下来；有时候是一团一团的，异常俏皮。不知道是疫情还是环境治理的原因，总之在大学期间，我对北京的蓝天总是充满着期待。"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/post/3e04658a/blue-1.png",
+          "local": "/media/posts/blue/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/3e04658a/blue-2.png",
+          "local": "/media/posts/blue/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/3e04658a/blue-4.png",
+          "local": "/media/posts/blue/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/3e04658a/blue-5.png",
+          "local": "/media/posts/blue/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/post/3e04658a/blue-3.png",
+          "local": "/media/posts/blue/original-05.webp"
+        }
+      ]
+    },
+    {
+      "route": "/posts/lide-building",
+      "source": "https://hqselene.github.io/post/a473d44b/",
+      "textBlocks": [
+        "立德18楼是我们实验室工位所在的地方，在准备作品集和做研究的这段时间，它是我待得时间最久的地方，在这里，我经常和朝阳、夕阳擦肩而过，偶然也会遇到彩虹。它作为我们学校最高的教学楼，你可以清楚的看到这个校园结构，看到密密麻麻的人群，看到远处的白云和蓝天。在这里，你可以看到天是蓝色的、红色的、也是紫色的。",
+        "The 18th floor of Lide is where our laboratory workstation is located. I stay there for preparing my portfolio and conduct my research. During this period, it was the place where I stayed the longest. Here, I often brushed past the sunrise and sunset, bumping into rainbow occasionally. As the tallest teaching building in our school, you can clearly see the layout of the campus, watch the crowd coming and go, and enjoy the distant white clouds and blue sky. Here, you can see that the sky is blue, red, and also purple."
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/lide-building/1.JPG",
+          "local": "/media/posts/lide-building/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/2.JPG",
+          "local": "/media/posts/lide-building/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/3.JPG",
+          "local": "/media/posts/lide-building/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/4.JPG",
+          "local": "/media/posts/lide-building/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/5.JPG",
+          "local": "/media/posts/lide-building/original-05.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/6.JPG",
+          "local": "/media/posts/lide-building/original-06.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/7.JPG",
+          "local": "/media/posts/lide-building/original-07.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/8.png",
+          "local": "/media/posts/lide-building/original-08.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/9.png",
+          "local": "/media/posts/lide-building/original-09.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/11.png",
+          "local": "/media/posts/lide-building/original-10.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/12.png",
+          "local": "/media/posts/lide-building/original-11.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/lide-building/13.png",
+          "local": "/media/posts/lide-building/original-12.webp"
+        }
+      ]
+    },
+    {
+      "route": "/posts/ancient-rome-exhibition",
+      "source": "https://hqselene.github.io/post/9eb52a15/",
+      "textBlocks": [
+        "我和冉冉在2022年9月22日一起参观了国家博物馆的古罗马文明展，拍到了一些很有趣的照片，于是想要记录一下。",
+        "Collage",
+        "这一部分是自己看到拍的图后联想到了的一些拼贴，因此我也自己尝试了一下。",
+        "A Sculpture",
+        "这是古罗马的一个雕像，我们觉得它非常的性感。"
+      ],
+      "links": [],
+      "images": [
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/2.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-01.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/3.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-02.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/4.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-03.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/5.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-04.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/6.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-05.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/7.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-06.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/8.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-07.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/9.JPG",
+          "local": "/media/posts/ancient-rome-exhibition/original-08.webp"
+        },
+        {
+          "source": "https://hqselene.github.io/images/museum-rome/10.png",
+          "local": "/media/posts/ancient-rome-exhibition/original-09.webp"
+        }
+      ]
+    }
+  ],
+  "unavailableImages": [
+    {
+      "url": "https://hqselene.github.io/images/Liberty/liberty.jpg",
+      "dest": "public/media/leap-of-faith/original-01.jpg",
+      "slug": "leap-of-faith"
+    },
+    {
+      "url": "https://hqselene.github.io/images/Liberty/liberty2.jpg",
+      "dest": "public/media/leap-of-faith/original-02.jpg",
+      "slug": "leap-of-faith"
+    },
+    {
+      "url": "https://hqselene.github.io/images/Liberty/liberty3.jpg",
+      "dest": "public/media/leap-of-faith/original-03.jpg",
+      "slug": "leap-of-faith"
+    },
+    {
+      "url": "https://hqselene.github.io/images/Liberty/liberty4.jpg",
+      "dest": "public/media/leap-of-faith/original-04.jpg",
+      "slug": "leap-of-faith"
+    },
+    {
+      "url": "https://hqselene.github.io/images/Liberty/liberty5.jpg",
+      "dest": "public/media/leap-of-faith/original-05.jpg",
+      "slug": "leap-of-faith"
+    },
+    {
+      "url": "https://hqselene.github.io/images/Liberty/liberty6.jpg",
+      "dest": "public/media/leap-of-faith/original-06.jpg",
+      "slug": "leap-of-faith"
+    }
+  ],
+  "emptyPages": [
+    "https://hqselene.github.io/post/6012a9ea/"
+  ]
+}

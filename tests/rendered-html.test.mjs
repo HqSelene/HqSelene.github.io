@@ -1,14 +1,17 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir, access } from 'node:fs/promises';
 import test from 'node:test';
-import worker from '../dist/server/index.js';
 import { readFrontmatter, renderMarkdown } from '../app/markdown.ts';
 
 async function render(path) {
-  const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: 'text/html' } }),
-    { ASSETS: { fetch: async () => new Response('Not found', { status: 404 }) } },
-    { waitUntil() {}, passThroughOnException() {} });
-  return { status: response.status, html: await response.text() };
+  const route = path.replace(/^\/+|\/+$/g, '');
+  try {
+    const html = await readFile(new URL(`../dist/client/${route ? route + '/' : ''}index.html`, import.meta.url), 'utf8');
+    return { status: 200, html };
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+    return { status: 404, html: await readFile(new URL('../dist/client/404.html', import.meta.url), 'utf8') };
+  }
 }
 
 test('home renders research sections in order and keeps the animated identity', async () => {
@@ -210,5 +213,32 @@ test('project categories come from current published content rather than a fixed
   assert.equal((filters.match(/<button\b/g) ?? []).length, counts.size + 1);
   for (const [name, count] of counts) {
     assert.ok(filters.includes(`<span>${name.replace(/&/g, '&amp;')}</span><strong>${count}</strong>`));
+  }
+});
+
+test('static Pages output includes local assets, home navigation payload and legacy redirects', async () => {
+  const output = new URL('../dist/client/', import.meta.url);
+  assert.equal(await readFile(new URL('.rsc', output), 'utf8'), await readFile(new URL('index.rsc', output), 'utf8'));
+  await access(new URL('.nojekyll', output));
+  for (const path of await readdir(output, { recursive: true })) {
+    if (!path.endsWith('.html')) continue;
+    const html = await readFile(new URL(path, output), 'utf8');
+    for (const match of html.matchAll(/(?:src|href)="(\/[^"#?]*)(?:[?#][^"]*)?"/g)) {
+      const target = decodeURIComponent(match[1].replaceAll('&amp;', '&'));
+      if (target.startsWith('//')) continue;
+      const relative = target.replace(/^\/+|\/+$/g, '');
+      try {
+        await access(new URL(relative || 'index.html', output));
+      } catch (error) {
+        assert.fail(`${path}: missing static asset or page ${target}: ${error.message}`);
+      }
+    }
+  }
+  const originalMigration = JSON.parse(await readFile(new URL("../content/migration/original-site.json", import.meta.url), "utf8"));
+  for (const page of originalMigration.pages) {
+    const source = new URL(page.source);
+    if (!/^\/post\/[a-z0-9]+\/$/i.test(source.pathname)) continue;
+    const html = await readFile(new URL(source.pathname.slice(1) + 'index.html', output), 'utf8');
+    assert.ok(html.includes(`href="${page.route}/"`), source.pathname);
   }
 });

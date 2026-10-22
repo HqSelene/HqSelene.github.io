@@ -168,3 +168,40 @@ About 的介绍、研究兴趣和兴趣爱好文字在 `app/about/page.tsx` 编�
 - 图片完整显示，不裁切；竖图和横图共用固定高度，避免轮播时页面跳动。
 - 每 6 秒切换，可暂停或点击左右箭头；鼠标悬停、键盘焦点进入时暂停，偏好减少动态效果时默认不自动播放。
 - 本地开发会自动重新加载；线上网站需要提交图片并完成部署后才更新。
+
+## 首页项目与 Publications（论文）
+
+- 首页 Recent Projects：编辑 `content/recent-projects.json`。
+- 所有论文（首页与 Publications 页面共用）：编辑 `content/publications.json`。原 `app/publications/data.ts` 现在只负责读取该 JSON，不再在里面改论文。
+- 项目图片放在 `public/media/recent-projects/`。
+- 论文图片放在 `public/media/publications/`。
+
+每个项目、论文都有以下可选图片字段：
+
+```json
+"image": "/media/publications/chi-2026.jpg",
+"imageAlt": "AI self-modeling study overview"
+```
+
+图片路径不包含 public。项目图片同理写成 `/media/recent-projects/coding.jpg`。
+留空 `"image": ""` 时，桌面保留淡色空图片位；手机隐藏空位。
+图片统一宽度、高度按原始比例自动调整，完整显示、不裁切。Publications 页面同样读取每篇论文的 image 和 imageAlt。
+
+论文另外有 `"showOnHome": true`：
+- true：出现在首页 Selected Publications 和 Publications 页面。
+- false 或删除该字段：只出现在 Publications 页面。
+- JSON 数组顺序就是显示顺序。
+- href 是论文点击地址；Does Personalized Nudging Wear Off? 已改为 ACM 全文链接。
+
+本地开发会自动读取配置更新；线上需要提交并推送到 main，等待部署完成。
+
+### 论文获奖标签
+
+在 `content/publications.json` 对应论文对象中添加：
+
+```json
+"award": "Best Paper · Social Impact"
+```
+
+首页和 Publications 页面会在 venue 旁边显示粉色获奖标签，窄屏自动换行。
+没有获奖的论文不填这个字段（或留空）即可；venue 只填写会议/期刊及年份，无需重复奖项。

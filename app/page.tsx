@@ -1,10 +1,12 @@
+import { ResearchThumbnail } from "./research-thumbnail";
+import { PublicationAward } from "./publications/publication-award";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./components";
 import { featuredProjects } from "./data";
 import { RotatingPractice } from "./interactive";
 import recentProjects from "../content/recent-projects.json";
-import { publications } from "./publications/data";
-import { PostList, UpdateList } from "./content-components";
+import { selectedPublications } from "./publications/data";
+import { UpdateList } from "./content-components";
 
 export default function Home() {
   return <><SiteHeader /><main>
@@ -73,14 +75,16 @@ export default function Home() {
     <section className="academic-section" id="recent-projects">
       <div className="academic-heading"><h2>Recent Projects</h2><span className="ongoing-label">Work in progress</span></div>
       <div className="ongoing-projects">{recentProjects.map((project) => <article key={project.title}>
+        <ResearchThumbnail image={project.image} imageAlt={project.imageAlt} />
         <div>{project.label && <p className="recent-project-label">{project.label}</p>}<h3>{project.href ? <Link href={project.href}>{project.title} <span aria-hidden="true">↗</span></Link> : project.title}</h3><p>{project.description}</p></div>
       </article>)}</div>
     </section>
     <section className="academic-section"><div className="academic-heading"><h2>Selected Publications</h2><Link href="/publications">All publications ↗</Link></div>
-      <div className="home-publications">{publications.map((publication) => <article key={publication.title}>
-        <span className="venue-label">{publication.venue}</span><div><h3><a href={publication.href} target="_blank" rel="noreferrer">{publication.title}</a></h3>
+      <div className="home-publications">{selectedPublications.map((publication) => <article key={publication.title}>
+        <ResearchThumbnail image={publication.image} imageAlt={publication.imageAlt} />
+        <div><div className="publication-labels"><span className="venue-label">{publication.venue}</span><PublicationAward award={publication.award} /></div><h3>{publication.href.trim() ? <a href={publication.href} target="_blank" rel="noreferrer">{publication.title}</a> : publication.title}</h3>
           <p>{publication.authors.split(/(Qing He)/).map((part, index) => part === "Qing He" ? <strong key={index}>{part}</strong> : part)}</p>
-          <a className="paper-link" href={publication.href} target="_blank" rel="noreferrer">{publication.href.endsWith(".pdf") ? "PDF" : "DOI"} ↗</a>
+          {publication.href.trim() && <a className="paper-link" href={publication.href} target="_blank" rel="noreferrer">{publication.href.endsWith(".pdf") ? "PDF" : "Link"} ↗</a>}
         </div></article>)}</div>
     </section>
     <section className="academic-section project-showcase" id="selected-work">
@@ -100,10 +104,6 @@ export default function Home() {
           </div>
         </Link>
       </article>)}</div>
-    </section>
-    <section className="academic-section home-posts">
-      <div className="academic-heading"><h2>Recent Posts</h2><Link href="/posts">All posts ↗</Link></div>
-      <PostList limit={3} />
     </section>
     </div>
   </main><SiteFooter /></>;

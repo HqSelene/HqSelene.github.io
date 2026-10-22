@@ -2,16 +2,22 @@
   {
     "title": "LLM for Qualitative Coding",
     "description": "We investigate how researchers use LLMs in qualitative analysis, exploring how AI shapes analytical reasoning, decision-making, and reliance through think-aloud studies..",
-    "label": "Leading Project · Collaboration with Stanford · Human–AI interaction · Qualitative research"
+    "label": "Leading Project · Collaboration with Stanford · Human–AI interaction · Qualitative research",
+    "image": "",
+    "imageAlt": ""
   },
   {
     "title": "Simulation for Architecture",
     "description": "We explore how AI-based stakeholder simulations can support human-centered architectural design. Through designer interviews and prototype development, we aim to inform future creativity support tools for architecture.",
-    "label": "Leading Project · Creativity support tools"
+    "label": "Leading Project · Creativity support tools",
+    "image": "/media/publications/Scenario.png",
+    "imageAlt": ""
   },
   {
     "title": "Experience-Centered Spatial Simulation (ECSS) Framework",
     "description": "We introduce a generative-agent framework for simulating how different stakeholders perceive, interpret, and experience architectural spaces, exploring the potential of AI to model diverse human perspectives and dynamic spatial experiences.",
-    "label": "Leading Project · Generative agents · Agent-based simulation"
+    "label": "Leading Project · Generative agents · Agent-based simulation",
+    "image": "/media/publications/ECSS.png",
+    "imageAlt": ""
   }
 ]

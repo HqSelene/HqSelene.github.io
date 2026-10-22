@@ -17,13 +17,14 @@ async function render(path) {
 test('home renders research sections in order and keeps the animated identity', async () => {
   const { status, html } = await render('/');
   assert.equal(status, 200);
-  const headings = ['Recent Projects', 'Selected Publications', 'Selected Projects', 'Recent Posts'];
+  const headings = ['Recent Projects', 'Selected Publications', 'Selected Projects'];
   let previous = -1;
   for (const heading of headings) {
     const position = html.indexOf(heading);
     assert.ok(position > previous, `${heading} follows the preceding section`);
     previous = position;
   }
+  assert.doesNotMatch(html, /Recent Posts/);
   assert.match(html, /hero-orbit/);
   assert.match(html, /href="#recent-projects"/);
   assert.match(html, /LLM for Qualitative Coding/);
@@ -240,5 +241,25 @@ test('static Pages output includes local assets, home navigation payload and leg
     if (!/^\/post\/[a-z0-9]+\/$/i.test(source.pathname)) continue;
     const html = await readFile(new URL(source.pathname.slice(1) + 'index.html', output), 'utf8');
     assert.ok(html.includes(`href="${page.route}/"`), source.pathname);
+  }
+});
+
+test('publication archive and homepage follow the shared editable configuration', async () => {
+  const entries = JSON.parse(await readFile(new URL('../content/publications.json', import.meta.url), 'utf8'));
+  const home = (await render('/')).html;
+  const archive = (await render('/publications')).html;
+  const selected = home.slice(home.indexOf('Selected Publications'), home.indexOf('Selected Projects'));
+  for (const entry of entries) {
+    assert.ok(archive.includes(entry.title), entry.title);
+    assert.equal(selected.includes(entry.title), entry.showOnHome === true, entry.title);
+    assert.ok(archive.includes(entry.href), entry.href);
+    if (entry.showOnHome && entry.image) assert.ok(selected.includes(`src="${entry.image}"`));
+  }
+  const nudging = entries.find(entry => entry.title.startsWith('Does Personalized'));
+  assert.equal(nudging.href, 'https://dl.acm.org/doi/full/10.1145/3772318.3791777');
+  assert.doesNotMatch(selected, /Longitudinal_Study_of_AI_Self_Modeling.pdf/);
+  const recent = JSON.parse(await readFile(new URL('../content/recent-projects.json', import.meta.url), 'utf8'));
+  for (const entry of recent) {
+    if (entry.image) assert.ok(home.includes(`src="${entry.image}"`));
   }
 });

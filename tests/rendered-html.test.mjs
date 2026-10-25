@@ -150,21 +150,25 @@ test('restored project links sit between the cover and article text', async () =
   }
 });
 
-test('original-site migration preserves every captured text block, link and image', async () => {
+test('migrated pages render the current editable Markdown rather than the historical snapshot', async () => {
+  // The migration snapshot is an archive, not a permanent restriction on edits.
   const audit = JSON.parse(await readFile(new URL('../content/migration/original-site.json', import.meta.url), 'utf8'));
-  const normalize = value => value.replace(/&(?:amp|lt|gt|quot|apos|#39|#x27|nbsp);/g,
-    entity => ({ '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'", '&#39;': "'", '&#x27;': "'", '&nbsp;': ' ' })[entity]).replace(/\s+/g, '');
   for (const page of audit.pages) {
+    const source = await readFile(new URL(`../content${page.route}.md`, import.meta.url), 'utf8');
+    const { data, body } = readFrontmatter(source, page.route);
     const { status, html } = await render(page.route);
+    if (data.draft === true) {
+      assert.equal(status, 404, page.route);
+      continue;
+    }
     assert.equal(status, 200, page.route);
+    const expected = renderMarkdown(body);
     const prose = html.match(/<div class="story-prose">([\s\S]*?)<\/div><dialog/)?.[1];
-    assert.ok(prose, page.route);
-    const text = normalize(prose.replace(/<[^>]*>/g, ''));
-    for (const block of page.textBlocks) assert.ok(text.includes(normalize(block)), `${page.route}: ${block.slice(0, 100)}`);
-    for (const link of page.links) assert.ok(prose.includes(`href="${link.url.replace(/&/g, '&amp;')}"`), link.url);
-    for (const image of page.images) {
-      assert.ok(prose.includes(`src="${image.local}"`), image.source);
-      await access(new URL(`../public${image.local}`, import.meta.url));
+    assert.equal(prose, expected.html, `${page.route}: published body must match current Markdown`);
+    for (const image of expected.images) {
+      if (image.startsWith('/') && !image.startsWith('//')) {
+        await access(new URL(`../public${image}`, import.meta.url));
+      }
     }
   }
   assert.equal(audit.pages.length, 15);

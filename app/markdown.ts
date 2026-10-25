@@ -1,7 +1,7 @@
 import { Marked, type Tokens } from "marked";
 import { parse as parseYaml } from "yaml";
 
-export type ArticleHeading = { id: string; title: string };
+export type ArticleHeading = { id: string; title: string; level: number };
 export type MarkdownDocument = { html: string; headings: ArticleHeading[]; images: string[] };
 
 export function readFrontmatter(source: string, path: string) {
@@ -41,7 +41,7 @@ export function renderMarkdown(body: string): MarkdownDocument {
         const id = count === 1 ? base : `${base}-${count}`;
         // The page already owns h1. Markdown headings start at h2.
         const level = Math.max(2, depth);
-        if (level === 2) headings.push({ id, title });
+        headings.push({ id, title, level });
         return `<h${level} id="${escapeHtml(id)}">${this.parser.parseInline(tokens)}</h${level}>\n`;
       },
       paragraph({ tokens }: Tokens.Paragraph) {

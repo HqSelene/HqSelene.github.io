@@ -11,7 +11,7 @@ export function ArticleLayout({ title, label, intro, summary, cover, html, headi
 }) {
   return <><SiteHeader />
     <main className="story-layout">
-      <ArticleSidebar backHref={backHref} backLabel={backLabel} headings={[{ id: "overview", title: "Overview" }, ...headings]} metadata={metadata} />
+      <ArticleSidebar backHref={backHref} backLabel={backLabel} headings={[{ id: "overview", title: "Overview", level: 2 }, ...headings]} metadata={metadata} />
       <article className="story-article" data-article-type={variant}>
         <header id="overview" className="story-heading">
           <p className="eyebrow">{label}</p>

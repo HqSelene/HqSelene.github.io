@@ -24,8 +24,7 @@ links:
   - label: Game source code
     url: https://github.com/HqSelene/EmotionSpaceCreation.git
 ---
-
-## Overview
+## Project Statement
 
 > "My university is similar to other Chinese colleges, which lack enough facilities to provide private spaces for their students. When you feel depressed, sad, or breakdown, there is no separate room for you to deal with your negative emotions. You can hear others crying and shouting from the corridors, which makes everyone feel embarrassed. This situation can also happen to people living in large cities today. Life is fast-paced, and pressure exists everywhere. However, these people don't have time or space to mitigate, and the negative emotions constantly aggregate."
 
@@ -61,7 +60,7 @@ At normal state, our internal body can exchange emotion with public space, which
 
 The game is developed on Unity and illustrates a scene to show when people need and how to create an emotion space.
 
-*The more information about this project can be found on [github](https://github.com/HqSelene/EmotionSpaceCreation.git).*  
+*The more information about this project can be found on [github](https://github.com/HqSelene/EmotionSpaceCreation.git).*
 *The game can be played on [website](https://hqselene.github.io/EmotionSpaceCreation/).*
 
 ![](/media/emotion-space/original-02.webp)
@@ -86,8 +85,6 @@ Negative and positive states are indicated by the color of the tube material wra
 
 ![](/media/emotion-space/original-07.webp)
 ![](/media/emotion-space/original-08.webp)
-
-
 
 ## Design notes
 

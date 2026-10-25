@@ -1,3 +1,4 @@
+import { pageMetadata } from "../../seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { formatDate, posts } from "../../content";
@@ -7,7 +8,7 @@ export function generateStaticParams() { return posts.map(({ slug }) => ({ slug 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = posts.find(item => item.slug === slug);
-  return post ? { title: `${post.title} — Qing He`, description: post.summary } : {};
+  return post ? pageMetadata(`/posts/${slug}/`, `${post.title} — Qing He`, post.summary, post.cover) : {};
 }
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

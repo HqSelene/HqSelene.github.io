@@ -105,16 +105,7 @@ draft: true
 本地 `npm run dev` 预览。新增、修改、删除 `content/projects/*.md`、`content/posts/*.md` 或更新动态 JSON 时，开发服务会自动重载内容并刷新浏览器，通常需要一两秒，不必手动重新构建。请将 Markdown 直接放在这两个目录下；子文件夹不会被当前读取规则扫描。
 线上网站需要重新构建和部署；仅编辑文件不会自动改变线上页面，除非仓库已有自动部署。
 
-可选的 `sectionLabels` 可以给很长的章节标题设置简短目录名，正文标题不变。
-已有项目已保留原来的章节标签，例如：
-
-```yaml
-sectionLabels:
-  "The invisible barrier around knowledge": "Critique"
-  "Transparency as spatial argument": "Proposal"
-```
-
-没有设置或标题改名后未匹配时，目录直接使用 `##` 标题。
+目录直接使用 Markdown 正文标题，支持 ## 到 ######，并按层级缩进。旧 sectionLabels 不再生效。
 
 ## 本次作品集导入
 
@@ -205,3 +196,24 @@ About 的介绍、研究兴趣和兴趣爱好文字在 `app/about/page.tsx` 编�
 
 首页和 Publications 页面会在 venue 旁边显示粉色获奖标签，窄屏自动换行。
 没有获奖的论文不填这个字段（或留空）即可；venue 只填写会议/期刊及年份，无需重复奖项。
+
+## SEO 与正式域名
+
+- 网站正式域名、首页搜索标题与简介在 `content/site.json` 管理。
+- 项目/文章的搜索标题、简介、分享图来自 Markdown 的 title、summary、cover。
+- 构建时自动生成 `dist/client/sitemap.xml`、`robots.txt` 和 `CNAME`，不需要手改产物。
+- Sitemap 只包含已生成的公开正式页面，不包含草稿、404 或旧文章跳转地址。
+- 网站部署后，在 Search Console 的 qing-he.com 网域资源中提交完整地址：
+  `https://qing-he.com/sitemap.xml`。
+- 验证 DNS TXT 记录应保留。GitHub Pages 的 Custom domain 设置应为 qing-he.com，
+  并启用 Enforce HTTPS；产物中的 CNAME 不替代 GitHub Actions 部署所需的仓库域名设置。
+- Sitemap 有助于发现页面，但提交成功不等于每个页面都会立即收录。
+
+## 文章目录与 Markdown 标题
+
+目录自动读取 Markdown 中所有标题：##、###、####、#####、######，
+以缩进区分层级，并保留正文的完整标题。旧 sectionLabels 字段不再覆盖目录文字，可以删除。
+页面大标题由 frontmatter 的 title 管理；正文建议从 ## 开始（单个 # 会按二级标题显示）。
+目录顶部的 Overview 是文章开头的固定入口，不来自正文。
+
+目录编号按父子章节递增：1、2 → 2.1 → 2.1.1；进入下一主章节后子编号重新开始。跳级标题归入最近的上级标题，不生成空章节编号。

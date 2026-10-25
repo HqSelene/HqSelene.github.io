@@ -23,17 +23,12 @@ export const projects: Project[] = Object.entries(sources).flatMap(([path, sourc
   const cover = required("cover");
   if (!/^(https?:\/\/|\/(?!\/))/.test(cover)) throw new Error(`${path}: invalid cover path`);
   const article = renderMarkdown(body);
-  const sectionLabels = data.sectionLabels;
-  if (sectionLabels !== undefined && (!sectionLabels || typeof sectionLabels !== "object" || Array.isArray(sectionLabels) || !Object.values(sectionLabels).every(label => typeof label === "string"))) {
-    throw new Error(`${path}: sectionLabels must map heading titles to short text labels`);
-  }
-  const labels = (sectionLabels ?? {}) as Record<string, string>;
   return [{ slug: path.split("/").pop()!.replace(/\.md$/, ""), title: required("title"),
     category, year, intro: required("intro"), summary: required("summary"),
     tags, cover, featured: data.featured === true, role: required("role"), tools: required("tools"),
     order: typeof data.order === "number" ? data.order : 999,
     archiveUrl: typeof data.archiveUrl === "string" ? data.archiveUrl : undefined,
-    links, html: article.html, headings: article.headings.map(heading => ({ ...heading, title: labels[heading.title] || heading.title })), gallery: article.images }];
+    links, html: article.html, headings: article.headings, gallery: article.images }];
 }).sort((a, b) => Number(b.year) - Number(a.year) || a.order - b.order || a.title.localeCompare(b.title));
 
 export const featuredProjects = projects.filter(project => project.featured);

@@ -263,3 +263,44 @@ test('publication archive and homepage follow the shared editable configuration'
     if (entry.image) assert.ok(home.includes(`src="${entry.image}"`));
   }
 });
+
+test('SEO output uses the custom domain and only canonical public pages', async () => {
+  const output = new URL('../dist/client/', import.meta.url);
+  const site = JSON.parse(await readFile(new URL('../content/site.json', import.meta.url), 'utf8'));
+  const xml = await readFile(new URL('sitemap.xml', output), 'utf8');
+  const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+  assert.equal(new Set(urls).size, urls.length);
+  assert.ok(urls.includes(site.url + '/'));
+  for (const file of await readdir(output, { recursive: true })) {
+    if (file !== 'index.html' && !file.endsWith('/index.html')) continue;
+    const html = await readFile(new URL(file, output), 'utf8');
+    const route = '/' + file.replace(/index\.html$/, '');
+    if (route.startsWith('/post/')) {
+      assert.ok(!urls.includes(site.url + route));
+      assert.match(html, /rel="canonical" href="https:\/\/qing-he\.com\//);
+      continue;
+    }
+    if (/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html)) continue;
+    const canonical = site.url + route;
+    assert.ok(urls.includes(canonical), canonical);
+    assert.ok(html.includes(`rel="canonical" href="${canonical}"`));
+    assert.ok(html.includes(`property="og:url" content="${canonical}"`));
+    assert.match(html, /name="description" content="[^"]+"/);
+  }
+  assert.ok(!urls.some(url => url.includes('first-note') || url.includes('404')));
+  assert.equal(await readFile(new URL('CNAME', output), 'utf8'), 'qing-he.com\n');
+  const robots = await readFile(new URL('robots.txt', output), 'utf8');
+  assert.ok(robots.includes('Sitemap: https://qing-he.com/sitemap.xml'));
+  assert.ok(!robots.includes('Disallow: /'));
+});
+
+test('article outline preserves all heading levels and original Markdown titles', async () => {
+  const article = renderMarkdown('## Main heading\n\n### Subheading\n\n#### Detail\n\n##### Notes\n\n###### Small detail\n\n## Next heading');
+  assert.deepEqual(article.headings.map(heading => heading.level), [2, 3, 4, 5, 6, 2]);
+  assert.deepEqual(article.headings.map(heading => heading.title), ['Main heading', 'Subheading', 'Detail', 'Notes', 'Small detail', 'Next heading']);
+  for (const heading of article.headings) assert.ok(article.html.includes(`<h${heading.level} id="${heading.id}">`));
+  const { html } = await render('/projects/warren-for-vs-code');
+  const toc = html.match(/<nav class="story-toc"[\s\S]*?<\/nav>/)?.[0];
+  assert.ok(toc?.includes('Agentic coding creates an attention problem'));
+  assert.ok(!toc?.includes('</span>Problem</a>'));
+});

@@ -18,8 +18,7 @@ sectionLabels:
   A clock for accumulated perception: Concept
   The audience becomes part of the exhibition: Design
 ---
-
-## Overview
+## Project Statement
 
 Humans created time as a shared abstraction, a collective agreement that allows society to function. The clock materializes this invisible consensus, making an intangible concept measurable and visible.
 
@@ -27,7 +26,7 @@ In this project, I explore a similar idea: *What if knowledge and interpretation
 
 I designed an interactive system where visitors collectively construct a shared understanding of exhibits. The panel functions as a “clock”, not for time, but for accumulated perception.
 
-### System Design
+## System Design
 
 The project consists of:
 
@@ -55,13 +54,11 @@ This panel installation is used to show the similarity matrix.
 
 #### Data Workflow
 
-This process depicts a detailed process related to data, from data collection to data computation. Expressly, the data storage and computation environment is set on the cloud. The data computation is based on Python, with different libraries in different tasks.  
+This process depicts a detailed process related to data, from data collection to data computation. Expressly, the data storage and computation environment is set on the cloud. The data computation is based on Python, with different libraries in different tasks.
 
 ![](/media/emotion-clock/data-workflow.png)
 
 > The emotion analysis is based on the color wheel theory. Robert Plutchik, a psychologist, proposed the psychoevolutionary classification approach for general emotional responses and created a wheel of emotions to illustrate different emotions.
->
-> 
 
 ![](/media/emotion-clock/color-wheel.png)
 

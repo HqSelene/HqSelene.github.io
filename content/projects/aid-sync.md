@@ -17,8 +17,7 @@ sectionLabels:
   Public participation is powerful—and hard to coordinate: Context
   Turning fragmented posts into actionable signals: System
 ---
-
-## Overview
+## Background
 
 The Wuhan lockdown and the Henan floods were significant public crises that caused severe damage in recent years. These events highlighted the potential of pan-media as an innovative response mechanism for emergencies, integrating ordinary citizens into the traditionally government-led rescue system. By forming a “mutual aid ecosystem”, pan-media facilitates real-time feedback on rescue information and online rescue efforts alongside official on-site operations.
 
@@ -28,19 +27,19 @@ This project aims to develop a data platform model that collects, processes, and
 
 ## Project Design Process
 
-![](/media/aid-sync/process.png)
+![](</media/aid-sync/process.png>)
 
 ## Henan Rainstorm Data Analysis
 
 In order to study the phenomena we observed, verify the hypotheses we proposed, and design a suitable data platform model, we obtained the Weibo data from July 20, 2021 to July 22 2021 by calling the API, and extracted useful information, and analyzed the obtained data after cleaning.
 
-**The formation process of the “mutual aid ecosystem” on social media**: In the entire ecosystem, we can see that in addition to help-seekers, different roles such as information release or- ganizers, information classification volunteers, and network res- cuers have also been formed, with corresponding functions and tasks. This division of labor plays a significant impact in mutual aid.  
+**The formation process of the “mutual aid ecosystem” on social media**: In the entire ecosystem, we can see that in addition to help-seekers, different roles such as information release or- ganizers, information classification volunteers, and network res- cuers have also been formed, with corresponding functions and tasks. This division of labor plays a significant impact in mutual aid.
 
-![](/media/aid-sync/mutual-aid.png)
+![](</media/aid-sync/mutual-aid.png>)
 
-**Posts forward distribution**: The overall distribution showed a long-tail distribution which indicates the exist of Pareto principle. A small amount of informa- tion receives a large amount of exposure and it lead to the decrease the efficiency of the rescue and wastes a lot of time and human resources.  
+**Posts forward distribution**: The overall distribution showed a long-tail distribution which indicates the exist of Pareto principle. A small amount of informa- tion receives a large amount of exposure and it lead to the decrease the efficiency of the rescue and wastes a lot of time and human resources.
 
-![](/media/aid-sync/distribution.png)
+![](</media/aid-sync/distribution.png>)
 
 ## Data Processing System Design
 
@@ -50,16 +49,14 @@ In order to study the phenomena we observed, verify the hypotheses we proposed, 
 
 **Data Classifications**: Data classification includes a text classifier, which is used to classify roughly extracted text information into three categories: help-seeking posts, help-providing posts, and others.
 
-**Data Visualization**: This part visualizes the obtained data to present the data more intuitively and conveniently. In public emergencies, the most important informationnincludes geographical location information, contact information, and information content. Based on the above demands, we divide the visualization into geographical location and summary information. The former one is presented through a map, while latter is shown through a list and has filtering and retrieval functions  
+**Data Visualization**: This part visualizes the obtained data to present the data more intuitively and conveniently. In public emergencies, the most important informationnincludes geographical location information, contact information, and information content. Based on the above demands, we divide the visualization into geographical location and summary information. The former one is presented through a map, while latter is shown through a list and has filtering and retrieval functions
 
-![](/media/aid-sync/system.png)
+![](</media/aid-sync/system.png>)
 
 ## Demo
 
-![](/media/aid-sync/demo.png)
-![](/media/aid-sync/demo-02.png)
-
-
+![](</media/aid-sync/demo.png>)
+![](</media/aid-sync/demo-02.png>)
 
 ## Design notes
 
@@ -85,7 +82,7 @@ The platform concept therefore treats collection, interpretation, and updating a
 
 The system diagram connects data collection to cleaning, integration, information extraction, and visualization. Batch processing is proposed in response to the practical tradeoff between information freshness, computing resources, and limits on platform crawling.
 
-![Proposed collection, processing, and presentation workflow from the portfolio.](/media/aid-sync/portfolio-workflow.webp)
+![Proposed collection, processing, and presentation workflow from the portfolio.](</media/aid-sync/portfolio-workflow.webp>)
 
 The accompanying prototype screens explore how structured records and map-based views could help people inspect requests. The portfolio documents a concept and implementation exploration; it does not establish a live emergency-response deployment.
 

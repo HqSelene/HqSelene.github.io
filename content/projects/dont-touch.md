@@ -17,8 +17,7 @@ sectionLabels:
   The invisible barrier around knowledge: Critique
   Transparency as spatial argument: Proposal
 ---
-
-## Overview
+## Project Statement
 
 In modern society, museums often take on a role of public education that appears open but is, in reality, restricted. Through their structure and methods of display, museums reinforce barriers to knowledge, embedding an intangible sense of authority that is untouchable, which reflects the power relations of Foucault’s “disciplinary society”. By limiting viewer interaction with exhibits, traditional museums establish a mechanism of control, making art inaccessible.
 
@@ -28,11 +27,11 @@ As an open, free art space, the ICA presents possibilities of domestic, open art
 
 ## Line Drawings
 
-**Floor Plan**  
+**Floor Plan**
 
 ![](/media/dont-touch/original-01.webp)
 
-**Section**  
+**Section**
 
 ![](/media/dont-touch/section.png)
 
@@ -48,8 +47,6 @@ As an open, free art space, the ICA presents possibilities of domestic, open art
 ![](/media/dont-touch/model.jpg)
 ![](/media/dont-touch/model-04.jpg)
 
-
-
 ## Design notes
 
 ### The invisible barrier around knowledge
@@ -63,4 +60,3 @@ Don’t Touch begins with this contradiction and asks how an extension could mak
 The design exposes circulation, storage, production, and viewing as overlapping systems. Transparency is used not as a visual style, but as a way to reveal who can access what—and under which conditions.
 
 The project turns architecture into a public question about ownership, participation, and the social role of the museum.
-

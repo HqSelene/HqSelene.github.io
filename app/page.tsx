@@ -1,3 +1,5 @@
+import { pageMetadata } from "./seo";
+import site from "../content/site.json";
 import { ResearchThumbnail } from "./research-thumbnail";
 import { PublicationAward } from "./publications/publication-award";
 import Link from "next/link";
@@ -7,6 +9,8 @@ import { RotatingPractice } from "./interactive";
 import recentProjects from "../content/recent-projects.json";
 import { selectedPublications } from "./publications/data";
 import { UpdateList } from "./content-components";
+
+export const metadata = pageMetadata("/", site.title, site.description);
 
 export default function Home() {
   return <><SiteHeader /><main>
@@ -21,7 +25,7 @@ export default function Home() {
                 I’m a third-year Master of Architecture (M.Arch) student at the
                 University of Pennsylvania, where I’m also a research assistant at
                 Penn HCI, working with <a href="https://metaxa.net/">Danaé Metaxa</a> on Human–Computer
-                Interaction (Simulation for Architecture, LLM for Qualitative Coding).
+                Interaction (Simulation for Architecture, LLM for Qualitative Coding, LLM Audit for Community).
               </p>
               <p className="hero-introduction-lead">
                 Before Penn, I studied Computer Science and Finance at Renmin

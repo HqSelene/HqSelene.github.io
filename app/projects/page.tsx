@@ -1,14 +1,10 @@
 import { PageHeading } from "../page-heading";
-import type { Metadata } from "next";
+import { pageMetadata } from "../seo";
 import { SiteFooter, SiteHeader } from "../components";
 import { projects } from "../data";
 import { ProjectExplorer } from "./project-explorer";
 
-export const metadata: Metadata = {
-  title: "Projects — Qing He",
-  description:
-    "Selected work in human-computer interaction, product design, spatial practice, and data science.",
-};
+export const metadata = pageMetadata("/projects/", "Projects — Qing He", "Selected work in human-computer interaction, product design, spatial practice, and data science.");
 
 export default function ProjectsPage() {
   return (

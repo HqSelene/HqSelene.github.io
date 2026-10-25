@@ -1,3 +1,4 @@
+import { pageMetadata } from "../../seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,7 +9,7 @@ export function generateStaticParams() { return projects.map(project => ({ slug:
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  return project ? { title: `${project.title} — Qing He`, description: project.summary } : {};
+  return project ? pageMetadata(`/projects/${slug}/`, `${project.title} — Qing He`, project.summary, project.cover) : {};
 }
 
 export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {

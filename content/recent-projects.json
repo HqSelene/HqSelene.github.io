@@ -9,7 +9,7 @@
   {
     "title": "Simulation for Architecture",
     "description": "We explore how AI-based stakeholder simulations can support human-centered architectural design. Through designer interviews and prototype development, we aim to inform future creativity support tools for architecture.",
-    "label": "Leading Project · Creativity support tools",
+    "label": "Leading Project · Creativity support tools · Human–AI interaction",
     "image": "/media/publications/Scenario.png",
     "imageAlt": ""
   },
@@ -18,6 +18,13 @@
     "description": "We introduce a generative-agent framework for simulating how different stakeholders perceive, interpret, and experience architectural spaces, exploring the potential of AI to model diverse human perspectives and dynamic spatial experiences.",
     "label": "Leading Project · Generative agents · Agent-based simulation",
     "image": "/media/publications/ECSS.png",
+    "imageAlt": ""
+  },
+  {
+    "title": "OpenAuditor",
+    "description": "We are developing an auditing tool for communities.",
+    "label": "Collaborative Project · Front-end Development · LLM Audit",
+    "image": "/media/publications/OpenAuditor.png",
     "imageAlt": ""
   }
 ]

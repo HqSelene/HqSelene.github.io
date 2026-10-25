@@ -20,13 +20,12 @@ links:
   - label: Read the full paper
     url: https://github.com/HqSelene/2021MCM-ICM/blob/main/The%20research%20of%20musical%20influence%20based%20on%20the%20characteristic%20of%20a%20network.pdf
 ---
+**Finalist Award** · 2021 MCM/ICM Mathematical Contest in Modeling
+**Team Member** · Qing He · Ruiqing Hu · Liang Yin
+**Tools** Python · NetworkX · scikit-learn · Pandas
+Full paper you can find [here](<https://github.com/HqSelene/2021MCM-ICM/blob/main/The%20research%20of%20musical%20influence%20based%20on%20the%20characteristic%20of%20a%20network.pdf>).
 
-**Finalist Award** · 2021 MCM/ICM Mathematical Contest in Modeling  
-**Team Member** · Qing He · Ruiqing Hu · Liang Yin  
-**Tools** Python · NetworkX · scikit-learn · Pandas  
-Full paper you can find [here](https://github.com/HqSelene/2021MCM-ICM/blob/main/The%20research%20of%20musical%20influence%20based%20on%20the%20characteristic%20of%20a%20network.pdf).
-
-## Overview
+## Project Statement
 
 > Who shapes the sound of an era? This project builds a mathematical framework to trace how influence travels through 5600+ musicians, using modified PageRank, entropy-weighted similarity, and dynamic graph analysis.
 
@@ -64,19 +63,19 @@ After running the full model pipeline across 5,603 musicians and ~42,000 influen
 
 ### Finding 1
 
-Influence follows a power law. A handful of artists, such as The Beatles, Bob Dylan, Hank Williams, account for a disproportionate share of total network influence, consistent with scale-free network behavior. The top 20 artists by PageRank collectively shape the trajectories of thousands of followers.  
+Influence follows a power law. A handful of artists, such as The Beatles, Bob Dylan, Hank Williams, account for a disproportionate share of total network influence, consistent with scale-free network behavior. The top 20 artists by PageRank collectively shape the trajectories of thousands of followers.
 
 ![The Rank of musical influence by the PR value](/media/musical-influence/ranking.png)
 
 ### Finding 2
 
-Mainstream genres self-reinforce; niche genres borrow. Jazz, Pop/Rock, and Country receive 70%+ of their influence from within their own genre. Electronic, New Age, and Avant-Garde draw less than 40% internally, actively absorbing from adjacent styles. Established genres have stable identities; emerging ones are still searching for one.  
+Mainstream genres self-reinforce; niche genres borrow. Jazz, Pop/Rock, and Country receive 70%+ of their influence from within their own genre. Electronic, New Age, and Avant-Garde draw less than 40% internally, actively absorbing from adjacent styles. Established genres have stable identities; emerging ones are still searching for one.
 
 ![IFSP of Different Music Genres](/media/musical-influence/influence.png)
 
 ### Finding 3
 
-Three musical revolutions, verified quantitatively. Similarity-over-time analysis pinpoints the 1950s Rock & Roll emergence, the 1960s British Invasion, and 1980s contemporary R&B as moments of maximal stylistic discontinuity. These align precisely with known historical events, which means that the model independently recovered what music historians already knew.  
+Three musical revolutions, verified quantitatively. Similarity-over-time analysis pinpoints the 1950s Rock & Roll emergence, the 1960s British Invasion, and 1980s contemporary R&B as moments of maximal stylistic discontinuity. These align precisely with known historical events, which means that the model independently recovered what music historians already knew.
 
 ![Revolution Events and the Music Similarities between years](/media/musical-influence/event.png)
 ![Artists of Different Genres Time Distribution](/media/musical-influence/timeline.png)

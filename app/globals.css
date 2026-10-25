@@ -3399,7 +3399,7 @@ img {
   border-color: var(--blue);
   text-decoration: none;
 }
-.story-next { display: grid; grid-template-columns: 1fr auto; gap: 12px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
+.story-next { display: grid; grid-template-columns: 1fr auto; gap: 12px; margin: 0; padding: 0; }
 .story-next .eyebrow { grid-column: 1 / -1; }
 .story-next strong { font-family: var(--serif); font-size: clamp(1.5rem, 2.8vw, 2.5rem); font-weight: 400; line-height: 1.25; }
 .story-next > span:last-child { align-self: center; font-size: 1.5rem; color: var(--blue); }
@@ -3698,3 +3698,100 @@ img {
 .research-content .ongoing-projects p { max-width: none; }
 
 .publication-item .publication-note { font-size: .85rem; line-height: 1.65; color: color-mix(in srgb, var(--ink) 62%, var(--paper)); font-weight: 400; }
+
+
+/* Markdown heading levels remain visible in the article outline. */
+.story-toc a { padding-left: calc(12px + var(--toc-depth, 0) * 12px); overflow-wrap: anywhere; }
+.story-toc a[data-level="3"],
+.story-toc a[data-level="4"],
+.story-toc a[data-level="5"],
+.story-toc a[data-level="6"] { font-size: .78rem; }
+.story-prose :is(h2, h3, h4, h5, h6) { scroll-margin-top: 120px; }
+@media (max-width: 760px) {
+  .story-toc a { padding-left: calc(var(--toc-depth, 0) * 8px); }
+}
+
+.story-toc a { grid-template-columns: max-content minmax(0, 1fr); }
+.story-toc a > span { min-width: 22px; white-space: nowrap; }
+
+/* Keep scrollbar space stable; reveal thumbs only during interaction. */
+html {
+  --scroll-thumb: transparent;
+  --scroll-track: transparent;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  scrollbar-width: thin;
+}
+.story-sidebar,
+.story-toc {
+  --scroll-thumb: transparent;
+  --scroll-track: transparent;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  scrollbar-width: thin;
+}
+html[data-scrolling="true"],
+.story-sidebar:is(:focus-within, [data-scrolling="true"]),
+.story-sidebar:is(:focus-within, [data-scrolling="true"]) .story-toc {
+  --scroll-thumb: var(--blue);
+  --scroll-track: color-mix(in srgb, var(--blue) 7%, var(--paper));
+}
+@media (hover: hover) {
+  .story-sidebar:hover, .story-sidebar:hover .story-toc {
+    --scroll-thumb: var(--blue);
+    --scroll-track: color-mix(in srgb, var(--blue) 7%, var(--paper));
+  }
+}
+@supports selector(::-webkit-scrollbar) {
+  html, .story-sidebar, .story-toc { scrollbar-color: auto; scrollbar-width: auto; }
+  html::-webkit-scrollbar,
+  .story-sidebar::-webkit-scrollbar,
+  .story-toc::-webkit-scrollbar { width: 8px; height: 8px; }
+  html::-webkit-scrollbar-track,
+  .story-sidebar::-webkit-scrollbar-track,
+  .story-toc::-webkit-scrollbar-track { background: var(--scroll-track); border-radius: 999px; }
+  html::-webkit-scrollbar-thumb,
+  .story-sidebar::-webkit-scrollbar-thumb,
+  .story-toc::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    border-radius: 999px;
+  }
+  html::-webkit-scrollbar-thumb:hover,
+  .story-sidebar::-webkit-scrollbar-thumb:hover,
+  .story-toc::-webkit-scrollbar-thumb:hover { background-color: var(--pink); }
+}
+@media (forced-colors: active) {
+  html, .story-sidebar, .story-toc {
+    --scroll-thumb: ButtonText;
+    --scroll-track: Canvas;
+    scrollbar-color: auto;
+  }
+}
+
+/* Thin viewport scrollbar drawn by the page, independent of OS overlay settings. */
+html[data-custom-scrollbar="true"] { scrollbar-width: none; }
+html[data-custom-scrollbar="true"]::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.page-scrollbar {
+  position: fixed;
+  inset: 4px 0 4px auto;
+  width: 12px;
+  z-index: 10000;
+  opacity: 0;
+  touch-action: none;
+  user-select: none;
+  transition: opacity 160ms ease;
+}
+.page-scrollbar[data-visible="true"] { opacity: 1; }
+.page-scrollbar-thumb {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 3px;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--blue);
+}
+.page-scrollbar:hover .page-scrollbar-thumb { background: var(--pink); }
+.page-scrollbar:focus-visible { outline: 1px solid var(--blue); outline-offset: -1px; }
+@media (prefers-reduced-motion: reduce) { .page-scrollbar { transition: none; } }
+@media (forced-colors: active) { .page-scrollbar-thumb { background: ButtonText; forced-color-adjust: none; } }

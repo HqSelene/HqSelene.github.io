@@ -1,9 +1,9 @@
 import { PageHeading } from "../page-heading";
-import type { Metadata } from "next";
+import { pageMetadata } from "../seo";
 import { SiteFooter, SiteHeader } from "../components";
 import { PostList } from "../content-components";
 
-export const metadata: Metadata = { title: "Posts — Qing He", description: "Research notes, observations, and open questions by Qing He." };
+export const metadata = pageMetadata("/posts/", "Posts — Qing He", "Research notes, observations, and open questions by Qing He.");
 
 export default function PostsPage() {
   return <><SiteHeader /><main className="inner-page posts-page index-page">

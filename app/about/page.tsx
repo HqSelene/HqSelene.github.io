@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "../seo";
 import { SiteFooter, SiteHeader } from "../components";
 import { AboutPhotos } from "./about-photos";
 
 const photoFiles = import.meta.glob<string>("../../content/about-photos/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}", { eager: true, query: "?url", import: "default" });
 const photos = Object.entries(photoFiles).sort(([a], [b]) => a.localeCompare(b, "en", { numeric: true })).map(([path, src]) => ({ src, alt: path.split("/").pop()!.replace(/\.[^.]+$/, "").replace(/^\d+[-_ ]*/, "").replace(/[-_]/g, " ") }));
 
-export const metadata: Metadata = {
-  title: "About — Qing He",
-  description: "Qing He is a Master of Architecture student at the University of Pennsylvania and a research assistant at Penn HCI, exploring human–AI interaction, creativity, and human experience.",
-};
+export const metadata = pageMetadata("/about/", "About — Qing He", "Qing He is a Master of Architecture student at the University of Pennsylvania and a research assistant at Penn HCI, exploring human–AI interaction, creativity, and human experience.");
 
 export default function AboutPage() {
   return <>

@@ -19,7 +19,6 @@ sectionLabels:
   Proximity is not the same as access: Resources
   Reading the limits of the portrait: Reflection
 ---
-
 <!-- Year is the 2023 portfolio archive year; completion date awaits confirmation. The dataset covers February 3–10, 2020. Source: Reference/portfolio.pdf, pages 25–27. -->
 
 *Archived in the 2023 portfolio. The year shown is the archive year; the project completion date is to be confirmed.*

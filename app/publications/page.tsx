@@ -1,13 +1,10 @@
 import { ResearchThumbnail } from "../research-thumbnail";
 import { PublicationAward } from "./publication-award";
 import { PageHeading } from "../page-heading";
-import type { Metadata } from "next";
+import { pageMetadata } from "../seo";
 import { SiteFooter, SiteHeader } from "../components";
 
-export const metadata: Metadata = {
-  title: "Publications — Qing He",
-  description: "Selected publications in HCI, AI, and machine learning.",
-};
+export const metadata = pageMetadata("/publications/", "Publications — Qing He", "Selected publications in HCI, AI, and machine learning.");
 
 import { publications } from "./data";
 
